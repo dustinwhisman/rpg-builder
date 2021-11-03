@@ -21,7 +21,13 @@
   <body>
     <div class="cmp-spread">
       {% block header %}
-        {% include "components/header.njk" %}
+        {% if game == 'Spacedoor!' %}
+          {% include "components/spacedoor/header.njk" %}
+        {% elseif game == 'Heroes and Henchmen' %}
+          {% include "components/heroes-and-henchmen/header.njk" %}
+        {% else %}
+          {% include "components/header.njk" %}
+        {% endif %}
       {% endblock %}
       <main role="main">
         {% block content %}
