@@ -1,121 +1,14 @@
 ---
-title: Hello World
-description: This is your basic hello world page that doesn't do anything.
-layout: layouts/default.njk
+title: Home
+description: Check out all these good homebrewed role-playing games, including Spacedoor! and Heroes and Henchmen, and whatever else has come out since that didn't make it into this description.
 ---
 
+{% extends "layouts/default.njk" %}
+
+{% block content %}
 <article class="cmp-container cmp-stack">
   <h1>
-    Eleventy Starter
+    TTRPGOMG
   </h1>
-
-  <p>
-    This starter template should give you the ability to start a brand new
-    eleventy project with one click without dealing with loads of boilerplate
-    and tooling setup.
-  </p>
-
-  <p>
-    It has opinionated defaults, but it follows conventions that should allow
-    for easy customization. Feel free to fork it, make any changes you like, and
-    turn it into your own starter template.
-  </p>
-
-  <h2>
-    Getting Started
-  </h2>
-
-  <p>
-    Use GitHub's repo generation feature to
-    <a href="https://github.com/dustinwhisman/eleventy-starter/generate">create a new repo</a>
-    that has everything ready to go.
-  </p>
-
-  <p>
-    Out of the box, you should have:
-  </p>
-  <ul>
-    <li>
-      Eleventy configured to build your templates into pages, including a
-      catch-all 404 page
-    </li>
-    <li>
-      Sass support with minimal/brutalist styles ready to go, including dark
-      mode
-    </li>
-    <li>
-      JS bundling with modern/legacy builds
-    </li>
-    <li>
-      Minimal PWA requirements already met
-    </li>
-    <li>
-      A service worker with precaching and a basic cache-falling-back-to-network
-      strategy in place
-    </li>
-  </ul>
-
-  <h3>
-    Installation
-  </h3>
-
-  <ol>
-    <li>
-      After cloning your new repo, make sure you have node/npm versions that
-      match the ones in <code>package.json</code>.
-    </li>
-    <li>
-      Run <code>npm install</code>.
-    </li>
-    <li>
-      Run <code>npm start</code>, which will build the site and start a
-      development server on <a href="http://localhost:8888">localhost:8888</a>.
-    </li>
-  </ol>
-
-  <h3>
-    Customization
-  </h3>
-  <p>
-    Once you're up and running, it's time to start changing stuff! You can start
-    with the theme of the site by changing the main set of variables that define
-    global styles in <code>src/assets/scss/settings/_theme.scss</code>.
-  </p>
-  <p>
-    The styles for this are organized following ITCSS conventions. The structure
-    is as follows:
-  </p>
-  <ul>
-    <li>
-      <code>settings</code>: global variables, colors, and fonts should go here
-    </li>
-    <li>
-      <code>tools</code>: mixins, functions, keyframes, etc. should go here
-    </li>
-    <li>
-      <code>generic</code>: normalize/reset-type styles, or anything not
-      specific to this site should go here
-    </li>
-    <li>
-      <code>elements</code>: styling for base elements (such as <code>h1</code>
-      or <code>a</code>) should go here
-    </li>
-    <li>
-      <code>objects</code>: broad, undecorated design patterns should go here –
-      this is the first layer that uses class selectors
-    </li>
-    <li>
-      <code>components</code>: specific UI components should go here – this is
-      the bread and butter
-    </li>
-    <li>
-      <code>vendors</code>: third party styles should go here so they live
-      side-by-side with your own styles, but can still be overridden by
-      utilities
-    </li>
-    <li>
-      <code>utilities</code>: utilities and helper classes should go here – this
-      is where you might use <code>!important</code> extensively
-    </li>
-  </ul>
 </article>
+{% endblock %}
