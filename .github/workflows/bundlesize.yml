@@ -1,0 +1,22 @@
+name: Bundlesize
+on: [pull_request]
+
+jobs:
+  bundlesize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: install npm dependencies
+        run: npm ci
+      - name: build files
+        run: npm run build
+      - name: check bundle sizes
+        run: |
+          if npm run budget | grep -w "FAIL"; then
+            exit 1
+          else
+            exit 0
+          fi

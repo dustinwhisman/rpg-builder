@@ -1,0 +1,9 @@
+.cmp-container {
+  --container-gutter: 1rem;
+  --container-max-width: var(--default-max-width);
+
+  box-sizing: content-box;
+  width: calc(100vw - (var(--container-gutter, 1rem) * 2));
+  max-width: var(--container-max-width, 60ch);
+  margin-inline: auto;
+}

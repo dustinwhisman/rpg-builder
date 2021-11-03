@@ -1,0 +1,13 @@
+.cmp-account-link {
+  display: none;
+}
+
+.is-logged-in {
+  .cmp-account-link {
+    display: block;
+  }
+
+  .cmp-login-link {
+    display: none;
+  }
+}

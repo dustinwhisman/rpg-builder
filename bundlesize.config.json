@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "path": "dist/assets/js/account.js",
+      "maxSize": "1 kB"
+    },
+    {
+      "path": "dist/assets/js/chunk-*.js",
+      "maxSize": "29 kB"
+    },
+    {
+      "path": "dist/assets/js/!(account|chunk-*)*.js",
+      "maxSize": "0.5 kB"
+    },
+    {
+      "path": "dist/assets/css/styles.css",
+      "maxSize": "2.5 kB"
+    }
+  ]
+}

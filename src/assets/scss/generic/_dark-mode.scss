@@ -1,0 +1,22 @@
+@media (prefers-color-scheme: dark) {
+  :root {
+    --theme-background-brightness: 10%;
+    --theme-foreground-brightness: 96%;
+    --theme-hover-brightness: 86%;
+    --theme-shadow-brightness: 50%;
+  }
+}
+
+.theme--dark-mode {
+  --theme-background-brightness: 10%;
+  --theme-foreground-brightness: 96%;
+  --theme-hover-brightness: 86%;
+  --theme-shadow-brightness: 50%;
+}
+
+.theme--light-mode {
+  --theme-background-brightness: 96%;
+  --theme-foreground-brightness: 10%;
+  --theme-hover-brightness: 35%;
+  --theme-shadow-brightness: 20%;
+}

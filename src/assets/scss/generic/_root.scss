@@ -1,0 +1,7 @@
+:root {
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+  font-family: var(--serif-font-family);
+  font-size: clamp(var(--minimum-body-font-size), var(--ideal-body-font-size), var(--maximum-body-font-size));
+  line-height: var(--body-copy-line-height);
+}
