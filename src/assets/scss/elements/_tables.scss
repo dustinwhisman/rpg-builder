@@ -1,0 +1,10 @@
+table {
+  width: min-content;
+}
+
+th,
+td {
+  white-space: nowrap;
+  width: min-content;
+  padding-inline-end: 1rem;
+}

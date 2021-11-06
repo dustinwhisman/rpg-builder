@@ -1,0 +1,112 @@
+---
+title: Character Creation
+game: Heroes and Henchmen
+description: Learn how to create your character for Heroes and Henchmen.
+---
+
+{% extends "layouts/default.njk" %}
+
+{% block content %}
+<article class="cmp-container cmp-stack">
+  <h1>
+    Character Creation
+  </h1>
+  <p>
+    Creating a character is designed to be very simple, so you can get up and
+    running quickly.
+  </p>
+
+  <h2>
+    Choosing a Character Concept
+  </h2>
+  <p>
+    Since this a game about superheroes, you'll need to decide a few things for
+    your character's backstory. What power or powers do you have? Or are you
+    just a normal person with gadgets or training? What's your superhero alias?
+    Secret identity? What's your origin story? Do your friends and family know
+    about your powers/exploits?
+  </p>
+
+  <h2>
+    Setting Your Stats
+  </h2>
+  <p>
+    Your character has six core stats, which will determine how good or bad they
+    are at certain skills. You will need to assign each skill a dice with a
+    different number of sides – your choices are d4, d6, d8, d10, d12, and d20.
+    The more sides on the dice, the better your character is at that stat.
+  </p>
+  <p>
+    The stats are:
+  </p>
+  <ul>
+    <li>Fight</li>
+    <li>Flight</li>
+    <li>Brains</li>
+    <li>Brawn</li>
+    <li>Grit</li>
+    <li>Charm</li>
+  </ul>
+  <p>
+    You can <a href="../stats-and-skills">read more about stats and skills</a> to
+    inform your choices, but it's better to choose stats that make sense for
+    your character concept than trying to optimize everything.
+  </p>
+
+  <h3>
+    Secondary Stats
+  </h3>
+  <p>
+    Once you've set your core stats, you can fill in some secondary stats that
+    are calculated from your core stats.
+  </p>
+  <ul>
+    <li>
+      <abbr title="Hit Points">HP</abbr> is half of your Grit die's highest
+      value, plus 7
+    </li>
+    <li>
+      <abbr title="Armor Class">AC</abbr> is half of your Flight die's highest
+      value, plus 3
+    </li>
+  </ul>
+
+  <h2>
+    An Example Character
+  </h2>
+  <p>
+    Let's say we wanted to play as a character that has super speed. Right away,
+    that implies that Flight is probably their best stat. We'll give that a d20.
+  </p>
+  <p>
+    They're probably not super strong, so let's give them low values for Brawn
+    and Grit, maybe a d4 and d6, respectively. That leaves Fight, Brains, and
+    Charm.
+  </p>
+  <p>
+    This is where the character concept comes into play. Depending on what we
+    want our character to be like, we can prioritize different things. There's
+    definitely an argument for super speed being useful in a fight, but maybe we
+    want them to rely more on social skills, or maybe part of the super speed
+    includes reading really fast, so they're really smart.
+  </p>
+  <p>
+    Let's go with a quippy fighter, and set Charm as d12, Fight as d10, and
+    Brains at d8. That leaves our stats like so:
+  </p>
+  <ul>
+    <li>Fight: d10</li>
+    <li>Flight: d20</li>
+    <li>Brains: d8</li>
+    <li>Brawn: d4</li>
+    <li>Grit: d6</li>
+    <li>Charm: d12</li>
+  </ul>
+
+  <p>
+    And based on that, their HP will be 10, and their AC will be 13. We did it!
+    We now have a perfectly playable character whose stats fit with their
+    overall concept.
+  </p>
+</article>
+{% endblock %}

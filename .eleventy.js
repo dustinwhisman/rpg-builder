@@ -23,6 +23,14 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ 'src/assets/fonts': 'assets/fonts' });
   eleventyConfig.addPassthroughCopy({ 'src/assets/images': 'assets/images' });
 
+  eleventyConfig.addFilter('kebab', (value) => {
+    if (!value || typeof value !== 'string') {
+      return '';
+    }
+
+    return value.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s/g, '-');
+  });
+
   return {
     dir: {
       includes: '../templates',

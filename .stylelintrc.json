@@ -7,6 +7,7 @@
     "order/properties-alphabetical-order": null,
     "selector-no-qualifying-type": [true, { "ignore": ["attribute"] }],
     "max-nesting-depth": 2,
-    "property-no-vendor-prefix": [true, { "ignoreProperties": ["appearance"] }]
+    "property-no-vendor-prefix": [true, { "ignoreProperties": ["appearance"] }],
+    "function-parentheses-space-inside": "never-single-line"
   }
 }

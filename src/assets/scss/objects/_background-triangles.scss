@@ -1,0 +1,57 @@
+:root {
+  --bg-color: var(--background-color);
+  --stripe-color: hsl(0deg 0% 25% / 5%);
+  --stripe-width: 2px;
+  --gap-color: transparent;
+  --gap-width: 140px;
+}
+
+body {
+  background-color: var(--bg-color);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      var(--gap-color),
+      var(--gap-color) 140px,
+      var(--stripe-color) 140px,
+      var(--stripe-color) 142px
+    ),
+    repeating-linear-gradient(
+      60deg,
+      var(--gap-color),
+      var(--gap-color) 140px,
+      var(--stripe-color) 140px,
+      var(--stripe-color) 142px
+    ),
+    repeating-linear-gradient(
+      120deg,
+      var(--gap-color),
+      var(--gap-color) 140px,
+      var(--stripe-color) 140px,
+      var(--stripe-color) 142px
+    );
+  background-size: 328px 284px;
+  background-attachment: fixed;
+}
+
+.spacedoor {
+  --stripe-color: hsl(200deg 100% 50% / 8%);
+}
+
+.heroes-and-henchmen {
+  --stripe-color: hsl(0deg 50% 50% / 5%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --stripe-color: hsl(0deg 0% 100% / 5%);
+  }
+
+  .spacedoor {
+    --stripe-color: hsl(200deg 100% 50% / 5%);
+  }
+
+  .heroes-and-henchmen {
+    --stripe-color: hsl(0deg 50% 50% / 10%);
+  }
+}

@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="/assets/css/styles.css">
     {% block pageStyles %}{% endblock %}
   </head>
-  <body>
+  <body class="{{ game | kebab }}">
     <div class="cmp-spread">
       {% block header %}
         {% if game == 'Spacedoor!' %}

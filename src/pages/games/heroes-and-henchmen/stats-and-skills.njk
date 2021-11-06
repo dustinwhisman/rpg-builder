@@ -1,0 +1,288 @@
+---
+title: Stats and Skills
+game: Heroes and Henchmen
+description: Learn about the stats and skills used for ability checks used in the game.
+---
+
+{% extends "layouts/default.njk" %}
+
+{% block content %}
+<article class="cmp-container cmp-stack">
+  <h1>
+    Stats and Skills
+  </h1>
+  <p>
+    With the exception of Fight, each stat is associated to different skills,
+    and some of them affect other aspects of your character, such as health and
+    armor class.
+  </p>
+  <p>
+    When asked to make a skill check, you'll roll the dice for the stat related
+    to the skill, plus any bonuses you have for that specific skill.
+  </p>
+  <ul>
+    <li>Fight</li>
+    <li>
+      Flight
+      <ul>
+        <li>Acrobatics</li>
+        <li>Perception</li>
+        <li>Sleight of Hand</li>
+        <li>Stealth</li>
+      </ul>
+    </li>
+    <li>
+      Brains
+      <ul>
+        <li>Investigation</li>
+        <li>Medicine</li>
+        <li>Science & Technology</li>
+      </ul>
+    </li>
+    <li>
+      Brawn
+      <ul>
+        <li>Athletics</li>
+        <li>Intimidation</li>
+      </ul>
+    </li>
+    <li>
+      Grit
+      <ul>
+        <li>Nature</li>
+        <li>Survival</li>
+      </ul>
+    </li>
+    <li>
+      Charm
+      <ul>
+        <li>Deception</li>
+        <li>Insight</li>
+        <li>Performance</li>
+        <li>Persuasion</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>
+    Fight
+  </h3>
+  <p>
+    This determines how good your character is at straight up fighting bad guys.
+    You will use this for attacking. Instead of skill checks, you will have
+    bonuses based on whatever weapon you are using.
+  </p>
+
+  <h3>
+    Flight
+  </h3>
+  <p>
+    This is a combination of speed, reflexes, agility, and situational
+    awareness. This also determines your <abbr title="Armor Class">AC</abbr>,
+    which determines how difficult it is to damage you in combat.
+  </p>
+  <p>
+    Your AC is equal to half of your Flight die's highest value, plus 3. It
+    breaks down like so:
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col" class="util-text-align-left">Flight Die</th>
+        <th scope="col" class="util-text-align-right">AC</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row" class="util-text-align-left">d4</th>
+        <td class="util-text-align-right">5</td>
+      </tr>
+      <tr>
+        <th scope="row" class="util-text-align-left">d6</th>
+        <td class="util-text-align-right">6</td>
+      </tr>
+      <tr>
+        <th scope="row" class="util-text-align-left">d8</th>
+        <td class="util-text-align-right">7</td>
+      </tr>
+      <tr>
+        <th scope="row" class="util-text-align-left">d10</th>
+        <td class="util-text-align-right">8</td>
+      </tr>
+      <tr>
+        <th scope="row" class="util-text-align-left">d12</th>
+        <td class="util-text-align-right">9</td>
+      </tr>
+      <tr>
+        <th scope="row" class="util-text-align-left">d20</th>
+        <td class="util-text-align-right">13</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>
+    Flight Skills
+  </h4>
+  <dl>
+    <dt>Acrobatics</dt>
+    <dd>
+      Used for situations where you're doing complex maneuvers that require
+      agility.
+    </dd>
+
+    <dt>Perception</dt>
+    <dd>
+      Used to uncover details about your environment that you might not
+      immediately be aware of.
+    </dd>
+
+    <dt>Sleight of Hand</dt>
+    <dd>
+      Used for things like pickpocketing, concealing items, or other actions
+      that require dextrous hands.
+    </dd>
+
+    <dt>Stealth</dt>
+    <dd>
+      Used for hiding, sneaking, or otherwise avoiding detection.
+    </dd>
+  </dl>
+
+  <h3>
+    Brains
+  </h3>
+  <p>
+    This is used for book smarts and technological capability. A brainy
+    character might fit into archetypes such as inventor or detective.
+  </p>
+
+  <h4>
+    Brains Skills
+  </h4>
+  <dl>
+    <dt>Investigation</dt>
+    <dd>
+      Used for closely examining objects or environments for hidden information
+      that wouldn't be obvious from a Perception check.
+    </dd>
+
+    <dt>Medicine</dt>
+    <dd>
+      Used for healing or stabilizing knocked out party members. There are other
+      abilities for healing that are more magical/meta-human in nature – this is
+      more like first aid.
+    </dd>
+
+    <dt>Science & Technology</dt>
+    <dd>
+      Used for inventing, using, or understanding advanced technology, as well
+      as catch-all checks for scientific knowledge.
+    </dd>
+  </dl>
+
+  <h3>
+    Brawn
+  </h3>
+  <p>
+    This is used for raw physical strength – stopping trains and lifting cars
+    and the like.
+  </p>
+
+  <h4>
+    Brawn Skills
+  </h4>
+  <dl>
+    <dt>Athletics</dt>
+    <dd>
+      Used for feats of strength or atheleticism, like lifting, jumping, or
+      grappling.
+    </dd>
+
+    <dt>Intimidation</dt>
+    <dd>
+      Used to influence others to do things by way of fear or threat of
+      violence. It's... not a great thing to do.
+    </dd>
+  </dl>
+
+  <h3>
+    Grit
+  </h3>
+  <p>
+    This is used for resilience and toughness, and it determines how much damage
+    you can take before getting knocked out.
+  </p>
+  <p>
+    Your <abbr title="Hit Points">HP</abbr> is calculated as half your Grit die's
+    highest value, plus 7. It breaks down like so:
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col" class="util-text-align-left">Grit Die</th>
+        <th scope="col" class="util-text-align-right">HP</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row" class="util-text-align-left">d4</th>
+        <td class="util-text-align-right">9</td>
+      </tr>
+      <tr>
+        <th scope="row" class="util-text-align-left">d6</th>
+        <td class="util-text-align-right">10</td>
+      </tr>
+      <tr>
+        <th scope="row" class="util-text-align-left">d8</th>
+        <td class="util-text-align-right">11</td>
+      </tr>
+      <tr>
+        <th scope="row" class="util-text-align-left">d10</th>
+        <td class="util-text-align-right">12</td>
+      </tr>
+      <tr>
+        <th scope="row" class="util-text-align-left">d12</th>
+        <td class="util-text-align-right">13</td>
+      </tr>
+      <tr>
+        <th scope="row" class="util-text-align-left">d20</th>
+        <td class="util-text-align-right">17</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>
+    Charm
+  </h3>
+  <p>
+    This is how personable, likeable, or convincing your character is. This is
+    your bread and butter for most social situations.
+  </p>
+
+  <h4>
+    Charm Skills
+  </h4>
+  <dl>
+    <dt>Deception</dt>
+    <dd>
+      Used for lying, tricking others, or hiding information.
+    </dd>
+
+    <dt>Insight</dt>
+    <dd>
+      Used for reading other people and general emotional awareness.
+    </dd>
+
+    <dt>Performance</dt>
+    <dd>
+      Used for putting on a show, keeping an audience's attention, or otherwise
+      showing off.
+    </dd>
+
+    <dt>Persuasion</dt>
+    <dd>
+      Used for convincing others to do things through honest means.
+    </dd>
+  </dl>
+</article>
+{% endblock %}

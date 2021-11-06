@@ -1,0 +1,104 @@
+---
+title: Character Creation
+game: Spacedoor!
+description: Learn how to create your character for Spacedoor!
+---
+
+{% extends "layouts/default.njk" %}
+
+{% block content %}
+<article class="cmp-container cmp-stack">
+  <h1>
+    Character Creation
+  </h1>
+  <p>
+    Creating a character is designed to be very simple, so you can get up and
+    running quickly.
+  </p>
+
+  <h2>
+    Choosing a Character Concept
+  </h2>
+  <p>
+    The possibilities are endless for your character. You can be human, alien,
+    robot, ghost, or whatever you can possibly dream up in an infinite universe.
+    Are you a civilian or are you in the military? Are you from Earth? Did you
+    used to serve the enemy? How did you get recruited to be part of the
+    Spacedoor program?
+  </p>
+
+  <h2>
+    Setting Your Stats
+  </h2>
+  <p>
+    Your character has five core stats, which will determine how good or bad
+    they are at certain skills. You will need to assign each skill a dice with a
+    different number of sides – your choices are d4, d6, d8, d10, and d12. The
+    more sides on the dice, the better your character is at that stat.
+  </p>
+  <p>
+    The stats are:
+  </p>
+  <ul>
+    <li>Charm</li>
+    <li>Cool</li>
+    <li>Sharp</li>
+    <li>Tough</li>
+    <li>Technobabble</li>
+  </ul>
+  <p>
+    You can <a href="../stats-and-skills">read more about stats and skills</a> to
+    inform your choices, but it's better to choose stats that make sense for
+    your character concept than trying to optimize everything.
+  </p>
+
+  <h3>
+    Secondary Stats
+  </h3>
+  <p>
+    Once you've set your core stats, you can fill in some secondary stats that
+    are calculated from your core stats.
+  </p>
+  <ul>
+    <li>
+      <abbr title="Hit Points">HP</abbr> is half of your Tough die's highest
+      value, plus 7
+    </li>
+    <li>
+      <abbr title="Armor Class">AC</abbr> is half of your Cool die's highest
+      value, plus 3
+    </li>
+  </ul>
+
+  <h2>
+    An Example Character
+  </h2>
+  <p>
+    Let's say we wanted to play as a character that shoots first and asks
+    questions never. Right away, that implies maximum Tough, so let's set that
+    to a d12.
+  </p>
+  <p>
+    They're probably not super smart or tech-savvy, so let's give them low
+    values for Sharp and Technobabble, maybe a d6 and d4, respectively. That
+    leaves Cool and Charm. It probably makes sense to make Charm lower for this
+    character, so let's set Charm as a d8 and Cool as a d10.
+  </p>
+  <p>
+    That leaves our stats like so:
+  </p>
+  <ul>
+    <li>Charm: d8</li>
+    <li>Cool: d10</li>
+    <li>Sharp: d6</li>
+    <li>Tough: d12</li>
+    <li>Technobabble: d4</li>
+  </ul>
+
+  <p>
+    And based on that, their HP will be 13, and their AC will be 8. We did it!
+    We now have a perfectly playable character whose stats fit with their
+    overall concept.
+  </p>
+</article>
+{% endblock %}

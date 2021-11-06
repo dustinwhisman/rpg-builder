@@ -1,0 +1,293 @@
+---
+title: Stats and Skills
+game: Spacedoor!
+description: Learn about the stats and skills used for ability checks used in the game.
+---
+
+{% extends "layouts/default.njk" %}
+
+{% block content %}
+<article class="cmp-container cmp-stack">
+  <h1>
+    Stats and Skills
+  </h1>
+  <p>
+    With the exception of Technobabble, each stat is associated to different
+    skills, and some of them affect other aspects of your character, such as
+    health and armor class.
+  </p>
+  <p>
+    When asked to make a skill check, you'll roll the dice for the stat related
+    to the skill, plus any bonuses you have for that specific skill.
+  </p>
+  <ul>
+    <li>
+      Charm
+      <ul>
+        <li>Animal Handling</li>
+        <li>Deception</li>
+        <li>Insight</li>
+        <li>Performance</li>
+        <li>Persuasion</li>
+      </ul>
+    </li>
+    <li>
+      Cool
+      <ul>
+        <li>Acrobatics</li>
+        <li>Medicine</li>
+        <li>Sleight of Hand</li>
+        <li>Stealth</li>
+      </ul>
+    </li>
+    <li>
+      Sharp
+      <ul>
+        <li>History</li>
+        <li>Investigation</li>
+        <li>Nature</li>
+        <li>Perception</li>
+      </ul>
+    </li>
+    <li>
+      Tough
+      <ul>
+        <li>Athletics</li>
+        <li>Intimidation</li>
+        <li>Survival</li>
+      </ul>
+    </li>
+    <li>
+      Technobabble
+    </li>
+  </ul>
+
+  <h3>
+    Charm
+  </h3>
+  <p>
+    This is how personable, likeable, or convincing your character is. This is
+    your bread and butter for most social situations.
+  </p>
+
+  <h4>
+    Charm Skills
+  </h4>
+  <dl>
+    <dt>Animal Handling</dt>
+    <dd>
+      Used for dealing with animals or sub-sentient alien lifeforms.
+    </dd>
+
+    <dt>Deception</dt>
+    <dd>
+      Used for lying, tricking others, or hiding information.
+    </dd>
+
+    <dt>Insight</dt>
+    <dd>
+      Used for reading other people and general emotional awareness.
+    </dd>
+
+    <dt>Performance</dt>
+    <dd>
+      Used for putting on a show, keeping an audience's attention, or otherwise
+      showing off.
+    </dd>
+
+    <dt>Persuasion</dt>
+    <dd>
+      Used for convincing others to do things through honest means.
+    </dd>
+  </dl>
+
+  <h3>
+    Cool
+  </h3>
+  <p>
+    This is a combination of speed, reflexes, agility, and your ability to act
+    under pressure. This also determines your <abbr title="Armor
+    Class">AC</abbr>, which determines how difficult it is to damage you in
+    combat.
+  </p>
+  <p>
+    Your AC is equal to half of your Cool die's highest value, plus 3. It breaks
+    down like so:
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col" class="util-text-align-left">Cool Die</th>
+        <th scope="col" class="util-text-align-right">AC</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row" class="util-text-align-left">d4</th>
+        <td class="util-text-align-right">5</td>
+      </tr>
+      <tr>
+        <th scope="row" class="util-text-align-left">d6</th>
+        <td class="util-text-align-right">6</td>
+      </tr>
+      <tr>
+        <th scope="row" class="util-text-align-left">d8</th>
+        <td class="util-text-align-right">7</td>
+      </tr>
+      <tr>
+        <th scope="row" class="util-text-align-left">d10</th>
+        <td class="util-text-align-right">8</td>
+      </tr>
+      <tr>
+        <th scope="row" class="util-text-align-left">d12</th>
+        <td class="util-text-align-right">9</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>
+    Cool Skills
+  </h4>
+  <dl>
+    <dt>Acrobatics</dt>
+    <dd>
+      Used for situations where you're doing complex maneuvers that require
+      agility.
+    </dd>
+
+    <dt>Medicine</dt>
+    <dd>
+      Used for healing or stabilizing knocked out party members. There are other
+      abilities for healing that are more sci-fi in nature – this is more like
+      first aid.
+    </dd>
+
+    <dt>Sleight of Hand</dt>
+    <dd>
+      Used for things like pickpocketing, concealing items, or other actions
+      that require dextrous hands.
+    </dd>
+
+    <dt>Stealth</dt>
+    <dd>
+      Used for hiding, sneaking, or otherwise avoiding detection.
+    </dd>
+  </dl>
+
+  <h3>
+    Sharp
+  </h3>
+  <p>
+    This is used for book smarts and alertness. A character with high Sharp
+    might fit into archetypes such as scholar or scientist.
+  </p>
+
+  <h4>
+    Sharp Skills
+  </h4>
+  <dl>
+    <dt>History</dt>
+    <dd>
+      Used for recalling details from history or mythology that your character
+      might know.
+    </dd>
+
+    <dt>Investigation</dt>
+    <dd>
+      Used for closely examining objects or environments for hidden information
+      that wouldn't be obvious from a Perception check.
+    </dd>
+
+    <dt>Nature</dt>
+    <dd>
+      Used for knowledge about flora and fauna. This can also be used for
+      assessing the danger of alien environments.
+    </dd>
+
+    <dt>Perception</dt>
+    <dd>
+      Used to uncover details about your environment that you might not
+      immediately be aware of.
+    </dd>
+  </dl>
+
+  <h3>
+    Tough
+  </h3>
+  <p>
+    This is used for raw physical strength and hardiness. It also determines how
+    much damage you can take before being knocked out.
+  </p>
+  <p>
+    Your <abbr title="Hit Points">HP</abbr> is calculated as half your Grit die's
+    highest value, plus 7. It breaks down like so:
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col" class="util-text-align-left">Tough Die</th>
+        <th scope="col" class="util-text-align-right">HP</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row" class="util-text-align-left">d4</th>
+        <td class="util-text-align-right">9</td>
+      </tr>
+      <tr>
+        <th scope="row" class="util-text-align-left">d6</th>
+        <td class="util-text-align-right">10</td>
+      </tr>
+      <tr>
+        <th scope="row" class="util-text-align-left">d8</th>
+        <td class="util-text-align-right">11</td>
+      </tr>
+      <tr>
+        <th scope="row" class="util-text-align-left">d10</th>
+        <td class="util-text-align-right">12</td>
+      </tr>
+      <tr>
+        <th scope="row" class="util-text-align-left">d12</th>
+        <td class="util-text-align-right">13</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>
+    Tough Skills
+  </h4>
+  <dl>
+    <dt>Athletics</dt>
+    <dd>
+      Used for feats of strength or atheleticism, like lifting, jumping, or
+      grappling.
+    </dd>
+
+    <dt>Intimidation</dt>
+    <dd>
+      Used to influence others to do things by way of fear or threat of
+      violence. It's... not a great thing to do.
+    </dd>
+
+    <dt>Survival</dt>
+    <dd>
+      Used for survival situations, like being stranded in a desert or foraging
+      for food.
+    </dd>
+  </dl>
+
+  <h3>
+    Technobabble
+  </h3>
+  <p>
+    Technobabble is unique in that it doesn't have any specific skills
+    associated with it, but you can use your Technobabble die for any other
+    skill checks as long as you are using advanced technology to assist your
+    efforts.
+  </p>
+  <p>
+    For example, if you are using an advanced healing device to make a Medicine
+    check, you could roll your Technobabble die instead of your Cool die.
+  </p>
+</article>
+{% endblock %}

@@ -18,6 +18,7 @@
 @import './elements/code';
 @import './elements/pre';
 @import './elements/description-lists';
+@import './elements/tables';
 
 // form elements
 @import './elements/forms/button';
@@ -29,6 +30,9 @@
 @import './elements/forms/radio';
 @import './elements/forms/select';
 @import './elements/forms/textarea';
+
+// objects
+@import './objects/background-triangles';
 
 // components
 @import './components/layout/container';
