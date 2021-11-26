@@ -10,7 +10,7 @@
     },
     {
       "path": "dist/assets/js/!(account|chunk-*)*.js",
-      "maxSize": "0.5 kB"
+      "maxSize": "1 kB"
     },
     {
       "path": "dist/assets/css/styles.css",

@@ -27,6 +27,15 @@ const stats = {
   ],
 };
 
+const baseDice = [
+  'd4',
+  'd6',
+  'd8',
+  'd10',
+  'd12',
+  'd20',
+];
+
 const fromDice = [
   'd4',
   'd6',
@@ -93,6 +102,7 @@ const skillUpgrades = Object.keys(stats).reduce((upgradeList, key) => {
 
 module.exports = {
   stats,
+  baseDice,
   statUpgrades,
   skillUpgrades,
 };

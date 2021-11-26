@@ -1,0 +1,25 @@
+type Character {
+  uid: ID
+  name: String
+  game: String
+  stats: [Stat] @relation
+  skills: [Skill] @relation
+}
+
+type Stat {
+  character: Character
+  name: String
+  die: String
+  bonus: Int
+}
+
+type Skill {
+  character: Character
+  name: String
+  die: String
+  bonus: Int
+}
+
+type Query {
+  allCharactersByUid(uid: ID!): [Character]
+}

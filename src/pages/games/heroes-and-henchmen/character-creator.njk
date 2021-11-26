@@ -1,0 +1,26 @@
+---
+title: Character Creator
+game: Heroes and Henchmen
+description: Create your character for Heroes and Henchmen.
+---
+
+{% extends "layouts/default.njk" %}
+
+{% block content %}
+<article class="cmp-container cmp-stack">
+  <h1>
+    Character Creator
+  </h1>
+  <p>
+    Choose a name for your character, and then pick their stat dice.
+  </p>
+  <form id="create-character-form" class="cmp-stack">
+    <input type="hidden" name="game" value="Heroes and Henchmen">
+    {% include "components/common/create-character.njk" %}
+  </form>
+</article>
+{% endblock %}
+
+{% block scripts %}
+  <script src="/assets/js/create-character.js" type="module"></script>
+{% endblock %}

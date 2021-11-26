@@ -1,13 +1,13 @@
-.cmp-account-link {
+.is-visible-logged-in {
   display: none;
 }
 
 .is-logged-in {
-  .cmp-account-link {
+  .is-visible-logged-in {
     display: block;
   }
 
-  .cmp-login-link {
+  .is-visible-logged-out {
     display: none;
   }
 }

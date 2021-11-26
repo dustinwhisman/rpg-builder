@@ -18,3 +18,7 @@
     margin-block-start: calc(var(--stack-space, 1.5rem) * var(--stack-heading-multiplier, 1.5));
   }
 }
+
+.cmp-stack > input[type='hidden'] + * {
+  margin-block-start: 0;
+}
