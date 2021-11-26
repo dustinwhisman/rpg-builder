@@ -1,0 +1,33 @@
+{% for key, stat in stats %}
+  {% for skill in stats[key] %}
+    <input type="hidden" name="{{ skill }}" value="" data-skill>
+  {% endfor %}
+{% endfor %}
+<div>
+  <label for="character-name">
+    Character Name
+  </label>
+  <input id="character-name" type="text" name="character-name" required>
+</div>
+{% for key, stat in stats %}
+  <fieldset>
+    <legend>
+      {{ key }}
+    </legend>
+    <div class="cmp-cluster">
+      {% for dice in baseDice %}
+        <div>
+          <input id="{{ key }}-{{ dice }}" type="radio" name="{{ key }}" value="{{ dice }}" data-stat required>
+          <label for="{{ key }}-{{ dice }}">
+            {{ dice }}
+          </label>
+        </div>
+      {% endfor %}
+    </div>
+  </fieldset>
+{% endfor %}
+<div>
+  <button type="submit">
+    Create Character
+  </button>
+</div>
