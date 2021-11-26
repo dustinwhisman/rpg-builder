@@ -1,0 +1,30 @@
+.cmp-sidebar-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+
+  &__sidebar {
+    display: none;
+  }
+
+  &__sidebar--mobile {
+    display: block;
+  }
+
+  @media (min-width: 60rem) {
+    grid-template-columns: auto 1fr;
+
+    &__sidebar {
+      display: block;
+      align-self: flex-start;
+      position: sticky;
+      top: 0;
+      max-height: 100vh;
+      overflow-y: auto;
+    }
+
+    &__sidebar--mobile {
+      display: none;
+    }
+  }
+}

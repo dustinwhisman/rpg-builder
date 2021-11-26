@@ -29,7 +29,14 @@
           {% include "components/header.njk" %}
         {% endif %}
       {% endblock %}
-      <main role="main">
+      <main role="main" class="cmp-container cmp-sidebar-grid">
+        {% block sidebar %}
+          {% if game == 'Spacedoor!' %}
+            {% include "components/spacedoor/sidebar.njk" %}
+          {% elseif game == 'Heroes and Henchmen' %}
+            {% include "components/heroes-and-henchmen/sidebar.njk" %}
+          {% endif %}
+        {% endblock %}
         {% block content %}
           {{ content | safe }}
         {% endblock %}
