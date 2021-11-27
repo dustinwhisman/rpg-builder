@@ -59,6 +59,11 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
+  // if it isn't a GET, do nothing
+  if (event.request.method !== 'GET') {
+    return;
+  }
+
   // return from cache, falling back to network
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {

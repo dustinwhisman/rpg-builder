@@ -36,9 +36,12 @@ import { getCharacters } from './characters/get-characters.js';
         </li>
       `).join('');
 
-    const characterListElement = document.querySelector('[data-character-list-nav]');
-    if (characterListElement) {
-      characterListElement.innerHTML = characterList;
+    const characterListElements = document.querySelectorAll('[data-character-list-nav]');
+    if (characterListElements.length) {
+      characterListElements.forEach((element) => {
+        // eslint-disable-next-line no-param-reassign
+        element.innerHTML = characterList;
+      });
     }
   };
 

@@ -2,6 +2,7 @@
   display: grid;
   gap: 2rem;
   grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
 
   &__sidebar {
     display: none;
@@ -13,6 +14,7 @@
 
   @media (min-width: 60rem) {
     grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr;
 
     &__sidebar {
       display: block;
