@@ -1,6 +1,6 @@
 {% for key, stat in stats %}
   {% for skill in stats[key] %}
-    <input type="hidden" name="{{ skill }}" value="" data-skill>
+    <input type="hidden" name="{{ skill }}" value="{{ key }}" data-skill>
   {% endfor %}
 {% endfor %}
 <div>

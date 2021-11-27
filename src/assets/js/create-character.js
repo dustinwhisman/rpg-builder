@@ -29,10 +29,11 @@ import { fetcher } from './utilities/fetcher.js';
       const skillInputs = event.target.querySelectorAll('[data-skill]');
       const skills = Array.from(skillInputs)
         .reduce((skillsArray, input) => {
-          const { name } = input;
+          const { name, value: relatedStat } = input;
           return [
             ...skillsArray,
             {
+              relatedStat,
               name,
               die: '',
               bonus: 0,
@@ -49,18 +50,20 @@ import { fetcher } from './utilities/fetcher.js';
             stats: {
               create: [${stats.map(({ name, die, bonus }) => `
                 {
-                  name: "${name}",
-                  die: "${die}",
-                  bonus: ${bonus},
-                }`).join('')}
-              ]
-            }
-            skills: {
-              create: [${skills.map(({ name, die, bonus }) => `
-                {
-                  name: "${name}",
-                  die: "${die}",
-                  bonus: ${bonus},
+                  name: "${name}"
+                  die: "${die}"
+                  bonus: ${bonus}
+                  skills: {
+                    create: [${skills
+    .filter(({ relatedStat }) => relatedStat === name)
+    .map(({ name: skillName, die: skillDie, bonus: skillBonus }) => `
+                      {
+                        name: "${skillName}"
+                        die: "${skillDie}"
+                        bonus: ${skillBonus}
+                      }`).join('')}
+                    ]
+                  }
                 }`).join('')}
               ]
             }
@@ -79,7 +82,7 @@ import { fetcher } from './utilities/fetcher.js';
 
       const { result } = await response.json();
       const { _id: id } = result.data.createCharacter;
-      window.location.href = `../characters?id=${id}`;
+      window.location.href = `../character-sheet?id=${id}`;
     }
   });
 })();

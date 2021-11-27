@@ -1,0 +1,29 @@
+---
+title: Character Sheet
+game: Heroes and Henchmen
+description: Use this character sheet for your Heroes and Henchmen character.
+---
+
+{% extends "layouts/default.njk" %}
+
+{% block content %}
+<article class="cmp-container cmp-stack">
+  <h1>
+    Character Sheet
+    <span data-character-name></span>
+  </h1>
+  <div class="cmp-character-sheet">
+    <div class="cmp-character-sheet__computed-stats" data-computed-stats></div>
+    <div class="cmp-character-sheet__stats" data-stats></div>
+    <div class="cmp-character-sheet__skills" data-skills></div>
+  </div>
+</article>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const AC_STAT = 'Flight';
+  const HP_STAT = 'Grit';
+</script>
+<script src="/assets/js/character-sheet.js" type="module"></script>
+{% endblock %}

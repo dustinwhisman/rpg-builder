@@ -44,6 +44,9 @@
       {% block footer %}{% endblock %}
     </div>
     {% include "partials/dark-mode-favicon.njk" %}
+    <script>
+      const CURRENT_GAME = "{{ game }}";
+    </script>
     <script src="/assets/js/auth-state.js" type="module"></script>
     {% block scripts %}{% endblock %}
     {% include "partials/service-worker.njk" %}
