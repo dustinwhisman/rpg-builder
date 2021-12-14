@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
-    "@babel/core": "^7.16.0",
+    "@babel/core": "^7.16.5",
     "@babel/preset-env": "^7.16.4",
     "bundlesize": "^0.18.1",
     "check-node-version": "^4.2.1",
