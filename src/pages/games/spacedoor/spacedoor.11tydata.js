@@ -55,16 +55,20 @@ const statUpgrades = Object.keys(stats).reduce((upgradeList, key) => {
 
   for (let i = 0; i < 5; i += 1) {
     list.push({
+      stat: key,
       name: `${key} Upgrade (Level ${i + 1})`,
       description: `Increase your ${key} stat from a ${fromDice[i]} to a ${toDice[i]}.`,
       cost: i + 1,
+      limit: 'once',
     });
   }
 
   list.push({
+    stat: key,
     name: `${key} Bonus`,
     description: `Add a permanent +1 bonus to all ${key} rolls, or increase your existing bonus by +1. The maximum bonus is half of your ${key} die's highest value.`,
     cost: 1,
+    limit: `half:${key}`,
   });
 
   return upgradeList.concat(list);
