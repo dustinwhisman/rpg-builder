@@ -79,23 +79,32 @@ const skillUpgrades = Object.keys(stats).reduce((upgradeList, key) => {
 
   stats[key].forEach((skill) => {
     list.push({
+      stat: key,
+      skill,
       name: `${skill} Proficiency (Level 1)`,
       description: `Roll a d4 in addition to your ${key} die on ${skill} checks. Your ${key} die must be at least a d8.`,
       cost: 1,
+      limit: 'once',
     });
 
     for (let i = 0; i < 3; i += 1) {
       list.push({
+        stat: key,
+        skill,
         name: `${skill} Proficiency (Level ${i + 2})`,
         description: `Increase your ${skill} bonus die from a ${fromDice[i]} to a ${toDice[i]}. Your ${key} die must be ${i < 2 ? 'at least' : ''} a ${toDice[i + 2]}.`,
         cost: i + 2,
+        limit: 'once',
       });
     }
 
     list.push({
+      stat: key,
+      skill,
       name: `${skill} Bonus`,
       description: `Add a permanent +1 bonus to all ${skill} rolls, or increase your existing bonus by +1. The maximum bonus is half of your ${key} die's highest value.`,
       cost: 1,
+      limit: `half:${key}`,
     });
   });
 
