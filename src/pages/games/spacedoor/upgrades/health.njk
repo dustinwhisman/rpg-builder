@@ -5,6 +5,7 @@ description: See all the health upgrades that you can choose from.
 ---
 
 {% extends "layouts/default.njk" %}
+{%- from 'components/common/upgrade-card.njk' import upgradeCard -%}
 
 {% block content %}
 <article class="cmp-container cmp-stack">
@@ -14,29 +15,7 @@ description: See all the health upgrades that you can choose from.
 
   <div class="cmp-upgrade-card__grid">
     {% for upgrade in healthUpgrades %}
-      <article class="cmp-upgrade-card">
-        <h3 class="cmp-upgrade-card__name">
-          {{ upgrade.name }}
-        </h3>
-        <p class="cmp-upgrade-card__description">
-          {{ upgrade.description }}
-        </p>
-        {% if upgrade.limit == 'infinite' %}
-          <p class="cmp-upgrade-card__description">
-            <em>
-              There is no limit to how many times you can buy this upgrade.
-            </em>
-          </p>
-        {% endif %}
-        <p class="cmp-upgrade-card__cost">
-          <span class="cmp-upgrade-card__cost-label">
-            Cost:
-          </span>
-          <strong>
-            {{ upgrade.cost }} XP
-          </strong>
-        </p>
-      </article>
+      {{ upgradeCard({ headingLevel: 'h2', upgrade: upgrade }) }}
     {% endfor %}
   </div>
 </article>
