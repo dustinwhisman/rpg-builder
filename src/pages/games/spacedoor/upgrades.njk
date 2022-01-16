@@ -20,7 +20,7 @@ description: See all the available upgrades that you can choose from.
   </h2>
   {% for stat, skills in stats %}
     <h3>
-      {{ stat }} Upgrades
+      {{ stat }}
     </h3>
     {% for upgrade in statUpgrades %}
       {% if stat == upgrade.stat %}
@@ -40,16 +40,25 @@ description: See all the available upgrades that you can choose from.
   <h2>
     Skill Upgrades
   </h2>
-  {% for upgrade in skillUpgrades %}
-    <article class="cmp-stack">
-      <h3>{{ upgrade.name }}</h3>
-      <p>
-        {{ upgrade.description }}
-      </p>
-      <p>
-        Cost: {{ upgrade.cost }} XP
-      </p>
-    </article>
+  {% for stat, skills in stats %}
+    {% for skill in skills %}
+      <h3>
+        {{ skill }}
+      </h3>
+      {% for upgrade in skillUpgrades %}
+        {% if skill == upgrade.skill %}
+          <article class="cmp-stack">
+            <h4>{{ upgrade.name }}</h4>
+            <p>
+              {{ upgrade.description }}
+            </p>
+            <p>
+              Cost: {{ upgrade.cost }} XP
+            </p>
+          </article>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
   {% endfor %}
 </article>
 {% endblock %}
