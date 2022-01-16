@@ -24,7 +24,7 @@ description: See all the available upgrades that you can choose from.
     </h3>
     <div class="cmp-upgrade-card__grid">
       {% for upgrade in statUpgrades %}
-        {% if stat == upgrade.stat %}
+        {% if stat == upgrade.stat or upgrade.stat == 'Hit Points' %}
           <article class="cmp-upgrade-card">
             <h4 class="cmp-upgrade-card__name">
               {{ upgrade.name }}
@@ -78,5 +78,36 @@ description: See all the available upgrades that you can choose from.
       </div>
     {% endfor %}
   {% endfor %}
+
+  <h2>
+    Health Upgrades
+  </h2>
+  <div class="cmp-upgrade-card__grid">
+    {% for upgrade in healthUpgrades %}
+      <article class="cmp-upgrade-card">
+        <h3 class="cmp-upgrade-card__name">
+          {{ upgrade.name }}
+        </h3>
+        <p class="cmp-upgrade-card__description">
+          {{ upgrade.description }}
+        </p>
+        {% if upgrade.limit == 'infinite' %}
+          <p class="cmp-upgrade-card__description">
+            <em>
+              There is no limit to how many times you can buy this upgrade.
+            </em>
+          </p>
+        {% endif %}
+        <p class="cmp-upgrade-card__cost">
+          <span class="cmp-upgrade-card__cost-label">
+            Cost:
+          </span>
+          <strong>
+            {{ upgrade.cost }} XP
+          </strong>
+        </p>
+      </article>
+    {% endfor %}
+  </div>
 </article>
 {% endblock %}
