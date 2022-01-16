@@ -123,6 +123,57 @@ const statusEffects = [
   },
 ];
 
+const damageTypes = [
+  {
+    name: 'Bludgeoning',
+    type: 'instant',
+  },
+  {
+    name: 'Piercing',
+    type: 'instant',
+  },
+  {
+    name: 'Slashing',
+    type: 'instant',
+  },
+  {
+    name: 'Falling',
+    type: 'instant',
+  },
+  {
+    name: 'Psychic',
+    type: 'instant|repeating',
+  },
+  {
+    name: 'Necrotic',
+    type: 'instant|repeating',
+  },
+  {
+    name: 'Poison',
+    type: 'repeating',
+  },
+  {
+    name: 'Radiation',
+    type: 'repeating',
+  },
+  {
+    name: 'Fire',
+    type: 'instant|repeating',
+  },
+  {
+    name: 'Ice',
+    type: 'instant|repeating',
+  },
+  {
+    name: 'Water',
+    type: 'instant|repeating',
+  },
+  {
+    name: 'Lightning',
+    type: 'instant',
+  },
+];
+
 const statUpgrades = Object.keys(stats).reduce((upgradeList, key) => {
   const list = [];
 
@@ -205,6 +256,7 @@ module.exports = {
   stats,
   baseDice,
   statusEffects,
+  damageTypes,
   statUpgrades,
   skillUpgrades,
   healthUpgrades,
