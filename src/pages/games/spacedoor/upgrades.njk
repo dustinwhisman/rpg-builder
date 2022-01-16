@@ -22,19 +22,28 @@ description: See all the available upgrades that you can choose from.
     <h3>
       {{ stat }}
     </h3>
-    {% for upgrade in statUpgrades %}
-      {% if stat == upgrade.stat %}
-        <article class="cmp-stack">
-          <h4>{{ upgrade.name }}</h4>
-          <p>
-            {{ upgrade.description }}
-          </p>
-          <p>
-            Cost: {{ upgrade.cost }} XP
-          </p>
-        </article>
-      {% endif %}
-    {% endfor %}
+    <div class="cmp-upgrade-card__grid">
+      {% for upgrade in statUpgrades %}
+        {% if stat == upgrade.stat %}
+          <article class="cmp-upgrade-card">
+            <h4 class="cmp-upgrade-card__name">
+              {{ upgrade.name }}
+            </h4>
+            <p class="cmp-upgrade-card__description">
+              {{ upgrade.description }}
+            </p>
+            <p class="cmp-upgrade-card__cost">
+              <span class="cmp-upgrade-card__cost-label">
+                Cost:
+              </span>
+              <strong>
+                {{ upgrade.cost }} XP
+              </strong>
+            </p>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
   {% endfor %}
 
   <h2>
@@ -45,19 +54,28 @@ description: See all the available upgrades that you can choose from.
       <h3>
         {{ skill }}
       </h3>
-      {% for upgrade in skillUpgrades %}
-        {% if skill == upgrade.skill %}
-          <article class="cmp-stack">
-            <h4>{{ upgrade.name }}</h4>
-            <p>
-              {{ upgrade.description }}
-            </p>
-            <p>
-              Cost: {{ upgrade.cost }} XP
-            </p>
-          </article>
-        {% endif %}
-      {% endfor %}
+      <div class="cmp-upgrade-card__grid">
+        {% for upgrade in skillUpgrades %}
+          {% if skill == upgrade.skill %}
+            <article class="cmp-upgrade-card">
+              <h4 class="cmp-upgrade-card__name">
+                {{ upgrade.name }}
+              </h4>
+              <p class="cmp-upgrade-card__description">
+                {{ upgrade.description }}
+              </p>
+              <p class="cmp-upgrade-card__cost">
+                <span class="cmp-upgrade-card__cost-label">
+                  Cost:
+                </span>
+                <strong>
+                  {{ upgrade.cost }} XP
+                </strong>
+              </p>
+            </article>
+          {% endif %}
+        {% endfor %}
+      </div>
     {% endfor %}
   {% endfor %}
 </article>
