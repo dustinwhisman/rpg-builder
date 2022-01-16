@@ -111,9 +111,27 @@ const skillUpgrades = Object.keys(stats).reduce((upgradeList, key) => {
   return upgradeList.concat(list);
 }, []);
 
+const healthUpgrades = [
+  {
+    stat: 'HP',
+    name: 'Max HP Increase',
+    description: "Increase your HP by half of your Tough die's highest value, plus 7. This acts as a multiplier of base HP, so if your Tough die changes, your HP will change accordingly.",
+    cost: 1,
+    limit: 'infinite',
+  },
+  {
+    stat: 'HP',
+    name: 'HP Regen',
+    description: "At the end of your turn in combat, heal 1 HP. Buying this more than once increases the amount healed by 1 HP. You cannot regenerate health if you are at 0 HP. The maximum regeneration is half of your Tough die's highest value.",
+    cost: 1,
+    limit: 'half:Tough',
+  },
+];
+
 module.exports = {
   stats,
   baseDice,
   statUpgrades,
   skillUpgrades,
+  healthUpgrades,
 };
