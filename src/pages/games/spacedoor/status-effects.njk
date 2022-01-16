@@ -1,0 +1,32 @@
+---
+title: Status Effects
+game: Spacedoor!
+description: Learn about the status effects that can be inflicted on or by player characters.
+---
+
+{% extends "layouts/default.njk" %}
+
+{% block content %}
+<article class="cmp-container cmp-stack">
+  <h1>
+    Status Effects
+  </h1>
+  <p>
+    Weapons can be upgraded to inflict different status effects on player
+    characters or enemies. As written, the rules mostly apply to combat
+    situations, but they can be used in roleplay as well (GM discretion for what
+    happens in those cases).
+  </p>
+
+  <dl>
+    {% for statusEffect in statusEffects %}
+      <dt>
+        {{ statusEffect.name }}
+      </dt>
+      <dd>
+        {{ statusEffect.description }}
+      </dd>
+    {% endfor %}
+  </dl>
+</article>
+{% endblock %}
