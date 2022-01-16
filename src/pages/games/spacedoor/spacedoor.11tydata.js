@@ -252,6 +252,82 @@ const healthUpgrades = [
   },
 ];
 
+const armorUpgrades = [
+  {
+    stat: 'SHP',
+    name: 'Energy Shield',
+    description: "Wear an energy shield that will take damage before you lose HP. Shields have Shield Hit Points (SHP) equal to half of your Technobabble die's highest value. If the shield does not take damage during a round of combat, it regenerates one SHP at the end of your turn, unless it is at 0 SHP.",
+    cost: 1,
+    limit: 'once',
+  },
+  {
+    stat: 'SHP',
+    name: 'Max SHP Increase',
+    description: "Increase your SHP by half of your Technobabble die's highest value. This acts as a multiplier of base SHP, so if your Technobabble die changes, your SHP will change accordingly.",
+    cost: 1,
+    limit: 'infinite',
+  },
+  {
+    stat: 'SHP',
+    name: 'Improved SHP Regen',
+    description: "Increase the amount of SHP your shield regenerates by 1. The maximum value is half of your Technobabble die's highest value.",
+    cost: 1,
+    limit: 'half:Technobabble',
+  },
+];
+
+statusEffects.forEach((effect) => {
+  armorUpgrades.push({
+    statusEffect: effect.name,
+    name: `Remove ${effect.name} Vulnerability`,
+    description: `You are no longer vulnerable to the ${effect.name} status effect, meaning you don't have to roll with disadvantage on saving throws to avoid or remove the effect.`,
+    cost: 1,
+    limit: 'once',
+  });
+
+  armorUpgrades.push({
+    statusEffect: effect.name,
+    name: `${effect.name} Resistance`,
+    description: `Get advantage on saving throws to avoid or remove the ${effect.name} status effect.`,
+    cost: 3,
+    limit: 'once',
+  });
+
+  armorUpgrades.push({
+    statusEffect: effect.name,
+    name: `${effect.name} Immunity`,
+    description: `You can no longer be affected by the ${effect.name} status effect.`,
+    cost: 5,
+    limit: 'once',
+  });
+});
+
+damageTypes.forEach((type) => {
+  armorUpgrades.push({
+    damageType: type.name,
+    name: `Remove ${type.name} Damage Vulnerability`,
+    description: `You are no longer vulnerable to the ${type.name} damage type, meaning you no longer take double damage.`,
+    cost: 1,
+    limit: 'once',
+  });
+
+  armorUpgrades.push({
+    damageType: type.name,
+    name: `${type.name} Damage Resistance`,
+    description: `You take only half damage when hurt by the ${type.name} damage type.`,
+    cost: 3,
+    limit: 'once',
+  });
+
+  armorUpgrades.push({
+    damageType: type.name,
+    name: `${type.name} Damage Immunity`,
+    description: `You can no longer be hurt by ${type.name} damage.`,
+    cost: 5,
+    limit: 'once',
+  });
+});
+
 module.exports = {
   stats,
   baseDice,
@@ -260,4 +336,5 @@ module.exports = {
   statUpgrades,
   skillUpgrades,
   healthUpgrades,
+  armorUpgrades,
 };
