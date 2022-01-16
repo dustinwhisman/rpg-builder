@@ -5,6 +5,7 @@ description: See all the skill upgrades that you can choose from.
 ---
 
 {% extends "layouts/default.njk" %}
+{%- from 'components/common/upgrade-card.njk' import upgradeCard -%}
 
 {% block content %}
 <article class="cmp-container cmp-stack">
@@ -23,22 +24,7 @@ description: See all the skill upgrades that you can choose from.
       <div class="cmp-upgrade-card__grid">
         {% for upgrade in skillUpgrades %}
           {% if skill == upgrade.skill %}
-            <article class="cmp-upgrade-card">
-              <h3 class="cmp-upgrade-card__name">
-                {{ upgrade.name }}
-              </h3>
-              <p class="cmp-upgrade-card__description">
-                {{ upgrade.description }}
-              </p>
-              <p class="cmp-upgrade-card__cost">
-                <span class="cmp-upgrade-card__cost-label">
-                  Cost:
-                </span>
-                <strong>
-                  {{ upgrade.cost }} XP
-                </strong>
-              </p>
-            </article>
+            {{ upgradeCard({ headingLevel: 'h3', upgrade: upgrade }) }}
           {% endif %}
         {% endfor %}
       </div>
