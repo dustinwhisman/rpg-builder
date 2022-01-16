@@ -17,16 +17,16 @@ description: See all the skill upgrades that you can choose from.
 
   {% for stat, skills in stats %}
     {% for skill in skills %}
-      <h3>
+      <h2>
         {{ skill }}
-      </h3>
+      </h2>
       <div class="cmp-upgrade-card__grid">
         {% for upgrade in skillUpgrades %}
           {% if skill == upgrade.skill %}
             <article class="cmp-upgrade-card">
-              <h4 class="cmp-upgrade-card__name">
+              <h3 class="cmp-upgrade-card__name">
                 {{ upgrade.name }}
-              </h4>
+              </h3>
               <p class="cmp-upgrade-card__description">
                 {{ upgrade.description }}
               </p>
