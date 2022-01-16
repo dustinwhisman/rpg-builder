@@ -1,0 +1,48 @@
+---
+title: Armor Upgrades
+game: Spacedoor!
+description: See all the armor upgrades that you can choose from.
+---
+
+{% extends "layouts/default.njk" %}
+{%- from 'components/common/upgrade-card.njk' import upgradeCard -%}
+
+{% block content %}
+<article class="cmp-container cmp-stack">
+  <h1>
+    Armor Upgrades
+  </h1>
+  <h2>
+    Shields
+  </h2>
+  <div class="cmp-upgrade-card__grid">
+    {% for upgrade in armorUpgrades %}
+      {% if not upgrade.statusEffect and not upgrade.damageType %}
+        {{ upgradeCard({ headingLevel: 'h3', upgrade: upgrade }) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <h2>
+    Status Effects
+  </h2>
+  <div class="cmp-upgrade-card__grid">
+    {% for upgrade in armorUpgrades %}
+      {% if upgrade.statusEffect %}
+        {{ upgradeCard({ headingLevel: 'h3', upgrade: upgrade }) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <h2>
+    Damage Types
+  </h2>
+  <div class="cmp-upgrade-card__grid">
+    {% for upgrade in armorUpgrades %}
+      {% if upgrade.damageType %}
+        {{ upgradeCard({ headingLevel: 'h3', upgrade: upgrade }) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+</article>
+{% endblock %}

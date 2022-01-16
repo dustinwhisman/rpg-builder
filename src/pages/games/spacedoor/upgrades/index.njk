@@ -58,5 +58,41 @@ description: See all the available upgrades that you can choose from.
       {{ upgradeCard({ headingLevel: 'h3', upgrade: upgrade }) }}
     {% endfor %}
   </div>
+
+  <h2>
+    Armor Upgrades
+  </h2>
+  <h3>
+    Shields
+  </h3>
+  <div class="cmp-upgrade-card__grid">
+    {% for upgrade in armorUpgrades %}
+      {% if not upgrade.statusEffect and not upgrade.damageType %}
+        {{ upgradeCard({ headingLevel: 'h4', upgrade: upgrade }) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <h3>
+    Status Effects
+  </h3>
+  <div class="cmp-upgrade-card__grid">
+    {% for upgrade in armorUpgrades %}
+      {% if upgrade.statusEffect %}
+        {{ upgradeCard({ headingLevel: 'h4', upgrade: upgrade }) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <h3>
+    Damage Types
+  </h3>
+  <div class="cmp-upgrade-card__grid">
+    {% for upgrade in armorUpgrades %}
+      {% if upgrade.damageType %}
+        {{ upgradeCard({ headingLevel: 'h4', upgrade: upgrade }) }}
+      {% endif %}
+    {% endfor %}
+  </div>
 </article>
 {% endblock %}
