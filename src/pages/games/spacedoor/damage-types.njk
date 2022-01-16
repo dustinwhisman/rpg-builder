@@ -1,0 +1,28 @@
+---
+title: Damage Types
+game: Spacedoor!
+description: Learn about the damage types used in the game. Each character will have some vulnerabilities and resistances to these types.
+---
+
+{% extends "layouts/default.njk" %}
+
+{% block content %}
+<article class="cmp-container cmp-stack">
+  <h1>
+    Damage Types
+  </h1>
+  <p>
+    Weapons and environments can deal different types of damage. Each character
+    will have some vulnerabilities and some resistances to different damage
+    types, which can either increase or reduce the damage taken.
+  </p>
+
+  <ul>
+    {% for damageType in damageTypes %}
+      <li>
+        {{ damageType.name }}
+      </li>
+    {% endfor %}
+  </ul>
+</article>
+{% endblock %}
