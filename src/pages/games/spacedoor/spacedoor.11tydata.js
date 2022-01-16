@@ -129,32 +129,8 @@ const damageTypes = [
     type: 'instant',
   },
   {
-    name: 'Piercing',
-    type: 'instant',
-  },
-  {
-    name: 'Slashing',
-    type: 'instant',
-  },
-  {
     name: 'Falling',
     type: 'instant',
-  },
-  {
-    name: 'Psychic',
-    type: 'instant|repeating',
-  },
-  {
-    name: 'Necrotic',
-    type: 'instant|repeating',
-  },
-  {
-    name: 'Poison',
-    type: 'repeating',
-  },
-  {
-    name: 'Radiation',
-    type: 'repeating',
   },
   {
     name: 'Fire',
@@ -165,12 +141,36 @@ const damageTypes = [
     type: 'instant|repeating',
   },
   {
-    name: 'Water',
+    name: 'Lightning',
+    type: 'instant',
+  },
+  {
+    name: 'Necrotic',
     type: 'instant|repeating',
   },
   {
-    name: 'Lightning',
+    name: 'Piercing',
     type: 'instant',
+  },
+  {
+    name: 'Poison',
+    type: 'repeating',
+  },
+  {
+    name: 'Psychic',
+    type: 'instant|repeating',
+  },
+  {
+    name: 'Radiation',
+    type: 'repeating',
+  },
+  {
+    name: 'Slashing',
+    type: 'instant',
+  },
+  {
+    name: 'Water',
+    type: 'instant|repeating',
   },
 ];
 
