@@ -44,5 +44,16 @@ description: See all the attack and damage upgrades that you can choose from.
       {% endif %}
     {% endfor %}
   </div>
+
+  <h2>
+    Status Effects
+  </h2>
+  <div class="cmp-upgrade-card__grid">
+    {% for upgrade in weaponUpgrades %}
+      {% if upgrade.statusEffect %}
+        {{ upgradeCard({ headingLevel: 'h3', upgrade: upgrade }) }}
+      {% endif %}
+    {% endfor %}
+  </div>
 </article>
 {% endblock %}

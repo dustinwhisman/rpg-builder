@@ -130,5 +130,59 @@ description: See all the available upgrades that you can choose from.
       {% endif %}
     {% endfor %}
   </div>
+
+  <h3>
+    Status Effects
+  </h3>
+  <div class="cmp-upgrade-card__grid">
+    {% for upgrade in weaponUpgrades %}
+      {% if upgrade.statusEffect %}
+        {{ upgradeCard({ headingLevel: 'h4', upgrade: upgrade }) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <h2>
+    Actions
+  </h2>
+  <h3>
+    Healing
+  </h3>
+  <div class="cmp-upgrade-card__grid">
+    {% for upgrade in actions %}
+      {% if upgrade.stat == 'Healing' %}
+        {{ upgradeCard({ headingLevel: 'h4', upgrade: upgrade }) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <h3>
+    Status Effects
+  </h3>
+  <div class="cmp-upgrade-card__grid">
+    {% for upgrade in actions %}
+      {% if upgrade.statusEffect %}
+        {{ upgradeCard({ headingLevel: 'h4', upgrade: upgrade }) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <h2>
+    Bonus Actions
+  </h2>
+  <div class="cmp-upgrade-card__grid">
+    {% for upgrade in bonusActions %}
+      {{ upgradeCard({ headingLevel: 'h3', upgrade: upgrade }) }}
+    {% endfor %}
+  </div>
+
+  <h2>
+    Reactions
+  </h2>
+  <div class="cmp-upgrade-card__grid">
+    {% for upgrade in reactions %}
+      {{ upgradeCard({ headingLevel: 'h3', upgrade: upgrade }) }}
+    {% endfor %}
+  </div>
 </article>
 {% endblock %}
