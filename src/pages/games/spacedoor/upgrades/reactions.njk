@@ -1,0 +1,21 @@
+---
+title: Reactions
+game: Spacedoor!
+description: See all the reactions that you can buy.
+---
+
+{% extends "layouts/default.njk" %}
+{%- from 'components/common/upgrade-card.njk' import upgradeCard -%}
+
+{% block content %}
+<article class="cmp-container cmp-stack">
+  <h1>
+    Reactions
+  </h1>
+  <div class="cmp-upgrade-card__grid">
+    {% for upgrade in reactions %}
+      {{ upgradeCard({ headingLevel: 'h2', upgrade: upgrade }) }}
+    {% endfor %}
+  </div>
+</article>
+{% endblock %}

@@ -1,0 +1,37 @@
+---
+title: Actions
+game: Spacedoor!
+description: See all the actions that you can buy and upgrade.
+---
+
+{% extends "layouts/default.njk" %}
+{%- from 'components/common/upgrade-card.njk' import upgradeCard -%}
+
+{% block content %}
+<article class="cmp-container cmp-stack">
+  <h1>
+    Actions
+  </h1>
+  <h2>
+    Healing
+  </h2>
+  <div class="cmp-upgrade-card__grid">
+    {% for upgrade in actions %}
+      {% if upgrade.stat == 'Healing' %}
+        {{ upgradeCard({ headingLevel: 'h3', upgrade: upgrade }) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <h2>
+    Status Effects
+  </h2>
+  <div class="cmp-upgrade-card__grid">
+    {% for upgrade in actions %}
+      {% if upgrade.statusEffect %}
+        {{ upgradeCard({ headingLevel: 'h3', upgrade: upgrade }) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+</article>
+{% endblock %}
