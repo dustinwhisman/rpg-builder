@@ -342,7 +342,15 @@ damageTypes.forEach((type) => {
   });
 });
 
-const weaponUpgrades = [];
+const weaponUpgrades = [
+  {
+    stat: 'Damage',
+    name: 'Barrage',
+    description: "Increase the number of damage dice you roll by 1. The maximum number of dice is half of your Attack die's highest value.",
+    cost: 3,
+    limit: 'half:Attack',
+  },
+];
 
 for (let i = 0; i < 5; i += 1) {
   weaponUpgrades.push({
@@ -360,16 +368,6 @@ for (let i = 0; i < 5; i += 1) {
     name: `Stopping Power (Level ${i + 1})`,
     description: `Increase your Damage die from a ${fromDice[i]} to a ${toDice[i]}.`,
     cost: (i + 1) * 2,
-    limit: 'once',
-  });
-}
-
-for (let i = 0; i < 9; i += 1) {
-  weaponUpgrades.push({
-    stat: 'Damage',
-    name: `Barrage (Level ${i + 1})`,
-    description: `Increase the number of damage dice you roll from ${i + 1} to ${i + 2}.`,
-    cost: i + 1,
     limit: 'once',
   });
 }
