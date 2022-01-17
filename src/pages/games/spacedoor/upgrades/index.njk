@@ -94,5 +94,41 @@ description: See all the available upgrades that you can choose from.
       {% endif %}
     {% endfor %}
   </div>
+
+  <h2>
+    Attack/Damage Upgrades
+  </h2>
+  <h3>
+    Attack Die
+  </h3>
+  <div class="cmp-upgrade-card__grid">
+    {% for upgrade in weaponUpgrades %}
+      {% if upgrade.stat == 'Attack' %}
+        {{ upgradeCard({ headingLevel: 'h4', upgrade: upgrade }) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <h3>
+    Damage Die
+  </h3>
+  <div class="cmp-upgrade-card__grid">
+    {% for upgrade in weaponUpgrades %}
+      {% if upgrade.stat == 'Damage' %}
+        {{ upgradeCard({ headingLevel: 'h4', upgrade: upgrade }) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <h3>
+    Bonus Damage
+  </h3>
+  <div class="cmp-upgrade-card__grid">
+    {% for upgrade in weaponUpgrades %}
+      {% if upgrade.damageType %}
+        {{ upgradeCard({ headingLevel: 'h4', upgrade: upgrade }) }}
+      {% endif %}
+    {% endfor %}
+  </div>
 </article>
 {% endblock %}

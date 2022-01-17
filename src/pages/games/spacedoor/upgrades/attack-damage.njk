@@ -1,0 +1,48 @@
+---
+title: Attack/Damage Upgrades
+game: Spacedoor!
+description: See all the attack and damage upgrades that you can choose from.
+---
+
+{% extends "layouts/default.njk" %}
+{%- from 'components/common/upgrade-card.njk' import upgradeCard -%}
+
+{% block content %}
+<article class="cmp-container cmp-stack">
+  <h1>
+    Attack/Damage Upgrades
+  </h1>
+  <h2>
+    Attack Die
+  </h2>
+  <div class="cmp-upgrade-card__grid">
+    {% for upgrade in weaponUpgrades %}
+      {% if upgrade.stat == 'Attack' %}
+        {{ upgradeCard({ headingLevel: 'h3', upgrade: upgrade }) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <h2>
+    Damage Die
+  </h2>
+  <div class="cmp-upgrade-card__grid">
+    {% for upgrade in weaponUpgrades %}
+      {% if upgrade.stat == 'Damage' %}
+        {{ upgradeCard({ headingLevel: 'h3', upgrade: upgrade }) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <h2>
+    Bonus Damage
+  </h2>
+  <div class="cmp-upgrade-card__grid">
+    {% for upgrade in weaponUpgrades %}
+      {% if upgrade.damageType %}
+        {{ upgradeCard({ headingLevel: 'h3', upgrade: upgrade }) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+</article>
+{% endblock %}

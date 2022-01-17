@@ -55,71 +55,85 @@ const statusEffects = [
     name: 'Armor Break',
     description: 'Affected targets have their AC halved (rounded down). At the end of their turn, they can make a Cool saving throw to try to end the effect.',
     savingThrow: 'Cool',
+    opposedStat: 'Tough',
   },
   {
     name: 'Asleep',
     description: 'Affected targets are unable to act in combat. In place of their Action, the target can make a Sharp saving throw to try to wake up. If they succeed, they wake up and can use their Bonus Action and Reaction.',
     savingThrow: 'Sharp',
+    opposedStat: 'Charm',
   },
   {
     name: 'Berserk',
     description: 'Affected targets must use their Action to attack the nearest enemy on their turn, and they may only use offensive Bonus Actions and Reactions. At the end of their turn, they can make a Sharp saving throw to try to end the effect.',
     savingThrow: 'Sharp',
+    opposedStat: 'Charm',
   },
   {
     name: 'Bleeding',
     description: 'Affected targets take bleed damage at the end of their turn, at which point they can make a Cool saving throw to try to end the effect.',
     savingThrow: 'Cool',
+    opposedStat: 'Cool',
   },
   {
     name: 'Blinded',
     description: 'Affected targets are unable to see. Any rolls that require precision targeting must be made with Disadvantage, and any offensive rolls made against the player will be made with Advantage. At the end of their turn, the target can make a Sharp saving throw to try to end the effect.',
     savingThrow: 'Sharp',
+    opposedStat: 'Sharp',
   },
   {
     name: 'Confused',
     description: 'Affected targets will randomly attack anybody involved in combat, including themselves. On their turn, the target must roll a d4 to determine who is attacked, with 1 being themselves, and the other numbers being the next closest combatants. At the end of their turn, the Confused target can make a Sharp saving throw to end the effect.',
     savingThrow: 'Sharp',
+    opposedStat: 'Charm',
   },
   {
     name: 'Frightened',
     description: 'Affected targets must use their Movement to get away from whoever or whatever inflicted the effect. At the end of their turn, the target can make a Cool saving throw to try to end the effect.',
     savingThrow: 'Cool',
+    opposedStat: 'Charm',
   },
   {
     name: 'Mental Break',
     description: 'Affected targets have their core stat DCs halved (rounded down). At the end of their turn, they can make a Sharp saving throw to try to end the effect.',
     savingThrow: 'Sharp',
+    opposedStat: 'Cool',
   },
   {
     name: 'Poisoned',
     description: 'Affected targets take poison damage at the end of their turn, at which point they can make a Tough saving throw to try to end the effect.',
     savingThrow: 'Tough',
+    opposedStat: 'Cool',
   },
   {
     name: 'Power Break',
     description: 'Affected targets deal half damage (rounded down). At the end of their turn, they can make a Tough saving throw to try to end the effect.',
     savingThrow: 'Tough',
+    opposedStat: 'Tough',
   },
   {
     name: 'Restrained',
     description: 'Affected targets cannot use their Movement or Reaction. They can use their Action to make a Tough saving throw to break free, at which point they can use their Movement and Reaction, or they can choose to stay put and use their Action and Bonus Action for something else.',
     savingThrow: 'Tough',
+    opposedStat: 'Tough',
   },
   {
     name: 'Silenced',
     description: 'Affected targets cannot speak, and they lose the use of their Bonus Action. At the end of their turn, they can make a Cool saving throw to try to end the effect.',
     savingThrow: 'Cool',
+    opposedStat: 'Sharp',
   },
   {
     name: 'Slow',
     description: 'Affected targets can use either their Movement or their Action, but not both, and they cannot use their Bonus Action or Reaction. At the end of their turn, the target can make a Cool saving throw to try to end the effect.',
     savingThrow: 'Cool',
+    opposedStat: 'Cool',
   },
   {
     name: 'Stunned',
     description: 'Affected targets are unable to act in combat. In place of their Action, the target can make a Tough saving throw to try to snap out of it. If they succeed, they can use their Bonus Action and Reaction.',
     savingThrow: 'Tough',
+    opposedStat: 'Tough',
   },
 ];
 
@@ -129,7 +143,7 @@ const damageTypes = [
     type: 'instant',
   },
   {
-    name: 'Falling',
+    name: 'Explosive',
     type: 'instant',
   },
   {
@@ -328,6 +342,64 @@ damageTypes.forEach((type) => {
   });
 });
 
+const weaponUpgrades = [];
+
+for (let i = 0; i < 5; i += 1) {
+  weaponUpgrades.push({
+    stat: 'Attack',
+    name: `Weapon Proficiency (Level ${i + 1})`,
+    description: `Increase your Attack die from a ${fromDice[i]} to a ${toDice[i]}.`,
+    cost: i + 1,
+    limit: 'once',
+  });
+}
+
+for (let i = 0; i < 5; i += 1) {
+  weaponUpgrades.push({
+    stat: 'Damage',
+    name: `Stopping Power (Level ${i + 1})`,
+    description: `Increase your Damage die from a ${fromDice[i]} to a ${toDice[i]}.`,
+    cost: (i + 1) * 2,
+    limit: 'once',
+  });
+}
+
+for (let i = 0; i < 9; i += 1) {
+  weaponUpgrades.push({
+    stat: 'Damage',
+    name: `Barrage (Level ${i + 1})`,
+    description: `Increase the number of damage dice you roll from ${i + 1} to ${i + 2}.`,
+    cost: i + 1,
+    limit: 'once',
+  });
+}
+
+damageTypes.forEach((damageType) => {
+  weaponUpgrades.push({
+    damageType: damageType.name,
+    name: `Bonus ${damageType.name} Damage (Level 1)`,
+    description: `Spend an Action Point to add 1d4 ${damageType.name} damage to your attack. Buying this increases your pool of Action Points by 1.`,
+    cost: 1,
+    limit: 'once',
+  });
+
+  weaponUpgrades.push({
+    damageType: damageType.name,
+    name: `Bonus ${damageType.name} Damage (Level 2)`,
+    description: `You can add 1d4 per Action Point you spend of ${damageType.name} damage to your attack. Buying this increases your pool of Action Points by 1.`,
+    cost: 2,
+    limit: 'once',
+  });
+
+  weaponUpgrades.push({
+    damageType: damageType.name,
+    name: `Bonus ${damageType.name} Damage (Level 3)`,
+    description: `You can upgrade the damage dice for bonus ${damageType.name} damage by spending Action Points. 1 AP changes a d4 to a d6, 2 AP changes it to a d8, and so on. Buying this increases your pool of Action Points by 1.`,
+    cost: 3,
+    limit: 'once',
+  });
+});
+
 module.exports = {
   stats,
   baseDice,
@@ -337,4 +409,5 @@ module.exports = {
   skillUpgrades,
   healthUpgrades,
   armorUpgrades,
+  weaponUpgrades,
 };
