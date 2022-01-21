@@ -50,7 +50,7 @@
   "dependencies": {
     "dotenv": "^14.2.0",
     "esbuild": "^0.14.12",
-    "firebase": "^9.6.1",
+    "firebase": "^9.6.4",
     "firebase-admin": "^10.0.1",
     "middy": "^0.36.0",
     "node-fetch": "^3.2.0",
