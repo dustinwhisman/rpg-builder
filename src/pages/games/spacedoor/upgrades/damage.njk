@@ -1,7 +1,7 @@
 ---
-title: Attack/Damage Upgrades
+title: Damage Upgrades
 game: Spacedoor!
-description: See all the attack and damage upgrades that you can choose from.
+description: See all the damage upgrades that you can choose from.
 ---
 
 {% extends "layouts/default.njk" %}
@@ -10,19 +10,8 @@ description: See all the attack and damage upgrades that you can choose from.
 {% block content %}
 <article class="cmp-container cmp-stack">
   <h1>
-    Attack/Damage Upgrades
+    Damage Upgrades
   </h1>
-  <h2>
-    Attack Die
-  </h2>
-  <div class="cmp-upgrade-card__grid">
-    {% for upgrade in weaponUpgrades %}
-      {% if upgrade.stat == 'Attack' %}
-        {{ upgradeCard({ headingLevel: 'h3', upgrade: upgrade }) }}
-      {% endif %}
-    {% endfor %}
-  </div>
-
   <h2>
     Damage Die
   </h2>

@@ -1,0 +1,14 @@
+{
+  "HP Multiplier": 1,
+  "HP Regen": 0,
+  "Healing": {
+    "die": "d4|d6",
+    "dice": 1
+  },
+  "SHP Multiplier": 0,
+  "SHP Regen": 1,
+  "Damage": {
+    "die": "d4|d6",
+    "dice": 1
+  }
+}
