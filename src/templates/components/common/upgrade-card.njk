@@ -1,5 +1,5 @@
 {% macro upgradeCard(params) %}
-  <article class="cmp-upgrade-card">
+  <article class="cmp-upgrade-card" data-prereqs="{{ params.upgrade.prereqs | join("&&") }}">
     <{{ params.headingLevel }} class="cmp-upgrade-card__name">
       {{ params.upgrade.name }}
     </{{ params.headingLevel }}>

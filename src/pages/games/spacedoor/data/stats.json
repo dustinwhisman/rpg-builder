@@ -1,0 +1,27 @@
+{
+  "Charm": [
+    "Animal Handling",
+    "Deception",
+    "Insight",
+    "Performance",
+    "Persuasion"
+  ],
+  "Cool": [
+    "Acrobatics",
+    "Medicine",
+    "Sleight of Hand",
+    "Stealth"
+  ],
+  "Sharp": [
+    "History",
+    "Investigation",
+    "Nature",
+    "Perception"
+  ],
+  "Tough": [
+    "Athletics",
+    "Intimidation",
+    "Survival"
+  ],
+  "Technobabble": []
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Bludgeoning",
+    "type": "instant"
+  },
+  {
+    "name": "Explosive",
+    "type": "instant"
+  },
+  {
+    "name": "Fire",
+    "type": "instant|repeating"
+  },
+  {
+    "name": "Ice",
+    "type": "instant|repeating"
+  },
+  {
+    "name": "Lightning",
+    "type": "instant"
+  },
+  {
+    "name": "Necrotic",
+    "type": "instant|repeating"
+  },
+  {
+    "name": "Piercing",
+    "type": "instant"
+  },
+  {
+    "name": "Poison",
+    "type": "repeating"
+  },
+  {
+    "name": "Psychic",
+    "type": "instant|repeating"
+  },
+  {
+    "name": "Radiation",
+    "type": "repeating"
+  },
+  {
+    "name": "Slashing",
+    "type": "instant"
+  },
+  {
+    "name": "Water",
+    "type": "instant|repeating"
+  }
+]
