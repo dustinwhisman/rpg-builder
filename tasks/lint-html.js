@@ -34,6 +34,10 @@ const runLinter = async (fileChunks) => {
         'axe',
         'htmlcs',
       ],
+      ignore: [
+        // axe-core is incapable of detecting this correctly with background gradients
+        'color-contrast',
+      ],
     };
 
     for (let i = 0; i < fileChunks.length; i += 1) {
