@@ -34,6 +34,10 @@
         "description": "Used for situations where you're doing complex maneuvers that require agility."
       },
       {
+        "name": "Initiative",
+        "description": "Used for determining when your character acts in combat. Higher rolls go earlier."
+      },
+      {
         "name": "Medicine",
         "description": "Used for healing or stabilizing knocked out party members. There are other abilities for healing that are more sci-fi in nature – this is more like first aid."
       },

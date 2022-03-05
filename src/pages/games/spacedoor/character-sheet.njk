@@ -8,22 +8,40 @@ description: Use this character sheet for your Spacedoor! character.
 
 {% block content %}
 <article class="cmp-container cmp-stack">
-  <h1>
+  <h1 data-character-name>
     Character Sheet
-    <span data-character-name></span>
   </h1>
   <div class="cmp-character-sheet">
-    <div class="cmp-character-sheet__computed-stats" data-computed-stats></div>
-    <div class="cmp-character-sheet__stats" data-stats></div>
-    <div class="cmp-character-sheet__skills" data-skills></div>
+    <div class="cmp-character-sheet__status" data-status>
+      <!-- Stuff that changes (HP, AP, SHP, XP) -->
+    </div>
+    <div class="cmp-character-sheet__stats" data-stats>
+      <!-- Core Stats (Charm, Cool, Sharp, Tough, Technobabble) -->
+    </div>
+    <div class="cmp-character-sheet__secondary-stats" data-secondary-stats>
+      <!-- Secondary Stats (Damage Dice, Damage Threshold, Healing Dice) -->
+    </div>
+    <div class="cmp-character-sheet__skills" data-skills>
+      <!-- Skills (Animal Handling, Deception, etc.) -->
+    </div>
+    <div class="cmp-character-sheet__vulnerabilities" data-vulnerabilities></div>
+    <div class="cmp-character-sheet__resistances" data-resistances></div>
+    <div class="cmp-character-sheet__immunities" data-immunities></div>
+    <div class="cmp-character-sheet__upgrades" data-upgrades></div>
   </div>
 </article>
 {% endblock %}
 
 {% block scripts %}
   <script>
-    const AC_STAT = 'Cool';
-    const HP_STAT = 'Tough';
+    const STAT_UPGRADES = {{ statUpgrades | dump | safe }};
+    const SKILL_UPGRADES = {{ skillUpgrades | dump | safe }};
+    const HEALTH_UPGRADES = {{ healthUpgrades | dump | safe }};
+    const ARMOR_UPGRADES = {{ armorUpgrades | dump | safe }};
+    const WEAPON_UPGRADES = {{ weaponUpgrades | dump | safe }};
+    const ACTIONS = {{ actions | dump | safe }};
+    const BONUS_ACTIONS = {{ bonusActions | dump | safe }};
+    const REACTIONS = {{ reactions | dump | safe }};
   </script>
   <script src="/assets/js/character-sheet.js" type="module"></script>
 {% endblock %}

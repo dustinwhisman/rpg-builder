@@ -10,6 +10,7 @@ export const getCharacter = async (id) => {
             name
             die
             bonus
+            dcBonus
             skills {
               data {
                 name
@@ -17,6 +18,33 @@ export const getCharacter = async (id) => {
                 bonus
               }
             }
+          }
+        }
+        damageDie
+        numDamageDie
+        damageBonus
+        healingDie
+        numHealingDie
+        healingBonus
+        damageThreshold
+        actionPointMax
+        actionPoints
+        experiencePoints
+        baseHitPointMax
+        hitPointMultiplier
+        hitPoints
+        hitPointRegen
+        baseShieldHitPointMax
+        shieldHitPointMultiplier
+        shieldHitPoints
+        shieldHitPointRegen
+        vulnerabilities
+        resistances
+        immunities
+        upgrades {
+          data {
+            name
+            description
           }
         }
       }
@@ -32,7 +60,6 @@ export const getCharacter = async (id) => {
 
   const { result } = await response.json();
   const character = result.data.findCharacterByID;
-  const { name } = character;
   const stats = character.stats.data;
   const skills = stats.reduce((skillsArray, stat) => {
     const statSkills = stat.skills.data.map((skill) => ({
@@ -44,5 +71,12 @@ export const getCharacter = async (id) => {
     return skillsArray.concat(statSkills);
   }, []);
 
-  return { name, stats, skills };
+  const upgrades = character.upgrades.data;
+
+  return {
+    ...character,
+    stats,
+    skills,
+    upgrades,
+  };
 };

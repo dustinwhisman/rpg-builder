@@ -14,7 +14,7 @@ const statUpgrades = stats.reduce((upgradeList, stat) => {
       description: `Increase your ${stat.name} from a ${fromDice[i]} to a ${toDice[i]}.`,
       cost: i + 1,
       prereqs: [
-        `stat:${stat.name}:eq:${fromDice[i]}`,
+        `stat-die:${stat.name}:eq:${fromDice[i]}`,
       ],
     });
   }
@@ -26,7 +26,7 @@ const statUpgrades = stats.reduce((upgradeList, stat) => {
     description: `Add a permanent +1 bonus to all ${stat.name} rolls, or increase your existing bonus by +1. The maximum bonus is half of your ${stat.name} die's highest value.`,
     cost: 1,
     prereqs: [
-      `bonus:${stat.name}:lth:${stat.name}`,
+      `stat-bonus:${stat.name}:lth:${stat.name}`,
     ],
   });
 
@@ -37,7 +37,7 @@ const statUpgrades = stats.reduce((upgradeList, stat) => {
     description: `Increase your ${stat.name} DC by 1. You can increase this DC by up to half of your ${stat.name} die's highest value.`,
     cost: 1,
     prereqs: [
-      `dc:${stat.name}:lth:${stat.name}`,
+      `stat-dcBonus:${stat.name}:lth:${stat.name}`,
     ],
   });
 
@@ -56,8 +56,8 @@ const skillUpgrades = stats.reduce((upgradeList, stat) => {
       description: `Roll a d4 in addition to your ${stat.name} die on ${skill.name} checks. Your ${stat.name} die must be at least a d8.`,
       cost: 1,
       prereqs: [
-        `stat:${stat.name}:gte:d8`,
-        `skill:${skill.name}:eq:null`,
+        `stat-die:${stat.name}:gte:d8`,
+        `skill-die:${skill.name}:eq:null`,
       ],
     });
 
@@ -70,8 +70,8 @@ const skillUpgrades = stats.reduce((upgradeList, stat) => {
         description: `Increase your ${skill.name} bonus die from a ${fromDice[i]} to a ${toDice[i]}. Your ${stat.name} die must be ${i < 2 ? 'at least' : ''} a ${toDice[i + 2]}.`,
         cost: i + 2,
         prereqs: [
-          `stat:${stat.name}:gte:${toDice[i + 2]}`,
-          `skill:${skill.name}:eq:${fromDice[i]}`,
+          `stat-die:${stat.name}:gte:${toDice[i + 2]}`,
+          `skill-die:${skill.name}:eq:${fromDice[i]}`,
         ],
       });
     }
@@ -84,7 +84,7 @@ const skillUpgrades = stats.reduce((upgradeList, stat) => {
       description: `Add a permanent +1 bonus to all ${skill.name} rolls, or increase your existing bonus by +1. The maximum bonus is half of your ${stat.name} die's highest value.`,
       cost: 1,
       prereqs: [
-        `bonus:${skill.name}:lth:${stat.name}`,
+        `skill-bonus:${skill.name}:lth:${stat.name}`,
       ],
     });
 
@@ -106,71 +106,78 @@ const skillUpgrades = stats.reduce((upgradeList, stat) => {
 
 const healthUpgrades = [
   {
-    stat: 'HP Multiplier',
+    stat: 'hitPointMultiplier',
     name: 'Max HP Increase',
     description: "Increase your HP by half of your Tough die's highest value, plus 7. This acts as a multiplier of base HP, so if your Tough die changes, your HP will change accordingly.",
     cost: 1,
     prereqs: [],
   },
   {
-    stat: 'HP Regen',
+    stat: 'actionPointMax',
+    name: 'Max AP Increase',
+    description: 'Increase your max AP by 2.',
+    cost: 1,
+    prereqs: [],
+  },
+  {
+    stat: 'hitPointRegen',
     name: 'HP Regen',
     description: "At the end of your turn in combat, heal 1 HP. Buying this more than once increases the amount healed by 1 HP. You cannot regenerate health if you are at 0 HP. The maximum regeneration is half of your Tough die's highest value.",
     cost: 1,
     prereqs: [
-      'value:HP Regen:lth:Tough',
+      'value:hitPointRegen:lth:Tough',
     ],
   },
   {
-    stat: 'Healing',
+    stat: 'numHealingDie',
     name: 'Effective Medicine',
     description: "Increase the number of healing dice you roll by 1. The maximum number of dice is half of your Cool die's highest value.",
     cost: 2,
     prereqs: [
-      'dice:Healing:lth:Cool',
+      'value:numHealingDie:lth:Cool',
     ],
   },
 ];
 
 for (let i = 0; i < 5; i += 1) {
   healthUpgrades.push({
-    stat: 'Healing',
+    stat: 'healingDie',
     name: `Healing Power (Level ${i + 1})`,
     description: `Increase your Healing die from a ${fromDice[i]} to a ${toDice[i]}.`,
     cost: (i + 1) * 2,
     prereqs: [
-      `die:Healing:eq:${fromDice[i]}`,
+      `value:healingDie:eq:${fromDice[i]}`,
     ],
   });
 }
 
 const armorUpgrades = [
   {
-    stat: 'SHP Multiplier',
+    stat: 'shieldHitPointMultiplier',
     name: 'Energy Shield',
     description: "Wear an energy shield that will take damage before you lose HP. Shields have Shield Hit Points (SHP) equal to half of your Technobabble die's highest value. If the shield does not take damage during a round of combat, it regenerates one SHP at the end of your turn, unless it is at 0 SHP.",
     cost: 1,
     prereqs: [
-      'value:SHP Multiplier:eq:0',
+      'value:shieldHitPointMultiplier:eq:0',
     ],
   },
   {
-    stat: 'SHP Multiplier',
+    stat: 'shieldHitPointMultiplier',
     name: 'Max SHP Increase',
     description: "Increase your SHP by half of your Technobabble die's highest value. This acts as a multiplier of base SHP, so if your Technobabble die changes, your SHP will change accordingly.",
     cost: 1,
     prereqs: [
-      'value:SHP Multiplier:gt:0',
+      'value:shieldHitPointMultiplier:gt:0',
     ],
   },
   {
-    stat: 'SHP Regen',
+    stat: 'shieldHitPointRegen',
     name: 'Improved SHP Regen',
     description: "Increase the amount of SHP your shield regenerates by 1. The maximum value is half of your Technobabble die's highest value.",
     cost: 1,
     prereqs: [
-      'value:SHP Multiplier:gt:0',
-      'value:SHP Regen:lth:Technobabble',
+      'value:shieldHitPointMultiplier:gt:0',
+      'value:shieldHitPointRegen:lth:Technobabble',
     ],
   },
 ];
@@ -251,11 +258,9 @@ const weaponUpgrades = [
   {
     stat: 'Damage',
     name: 'Barrage',
-    description: 'Increase the number of damage dice you roll by 1. The maximum number of dice is 10.',
+    description: 'Increase the number of damage dice you roll by 1.',
     cost: 3,
-    prereqs: [
-      'dice:Damage:lt:10',
-    ],
+    prereqs: [],
   },
   {
     stat: 'Damage',
@@ -269,11 +274,20 @@ const weaponUpgrades = [
   {
     stat: 'Damage',
     name: 'Multi-target Attack (Level 2)',
-    description: 'Spend one Action Point per target you want to hit, and deal full damage to each of them.',
+    description: 'Spend one Action Point per additional target you want to hit, and deal full damage to each of them.',
     cost: 6,
     prereqs: [
       'ability:Multi-target Attack (Level 1):eq:true',
       'ability:Multi-target Attack (Level 2):eq:false',
+    ],
+  },
+  {
+    stat: 'Damage',
+    name: 'Concentrated Attack',
+    description: 'Spend Action Points to multiply the damage you do to a single target. 1 AP is double damage, 2 AP is triple damage, and so on.',
+    cost: 9,
+    prereqs: [
+      'ability:Concentrated Attack:eq:false',
     ],
   },
 ];
@@ -285,7 +299,7 @@ for (let i = 0; i < 5; i += 1) {
     description: `Increase your Damage die from a ${fromDice[i]} to a ${toDice[i]}.`,
     cost: (i + 1) * 2,
     prereqs: [
-      `die:Damage:eq:${fromDice[i]}`,
+      `value:damageDie:eq:${fromDice[i]}`,
     ],
   });
 }
@@ -450,6 +464,18 @@ const bonusActions = [
     ],
   },
 ];
+
+actions.forEach((action) => {
+  bonusActions.push({
+    name: `Bonus Action: ${action.name}`,
+    description: `Use the ${action.name} Action as a Bonus Action.`,
+    cost: action.cost * 2,
+    prereqs: [
+      `ability:${action.name}:eq:true`,
+      `ability:Bonus Action: ${action.name}:eq:false`,
+    ],
+  });
+});
 
 const reactions = [
   {

@@ -26,6 +26,162 @@
     </div>
   </fieldset>
 {% endfor %}
+
+<h2>
+  Secondary Stats
+</h2>
+<p>
+  Rank Offense, Defense, and Healing from best to worst to determine some
+  secondary stats.
+</p>
+<fieldset>
+  <legend>
+    Offense
+  </legend>
+  <div class="cmp-cluster">
+    <div>
+      <input id="offense-d8" type="radio" name="offense" value="d8" required>
+      <label for="offense-d8">
+        Best (d8 Damage Die)
+      </label>
+    </div>
+    <div>
+      <input id="offense-d6" type="radio" name="offense" value="d6" required>
+      <label for="offense-d6">
+        Middle (d6 Damage Die)
+      </label>
+    </div>
+    <div>
+      <input id="offense-d4" type="radio" name="offense" value="d4" required>
+      <label for="offense-d4">
+        Worst (d4 Damage Die)
+      </label>
+    </div>
+  </div>
+</fieldset>
+<fieldset>
+  <legend>
+    Defense
+  </legend>
+  <div class="cmp-cluster">
+    <div>
+      <input id="defense-6" type="radio" name="defense" value="6" required>
+      <label for="defense-6">
+        Best (6 Damage Threshold)
+      </label>
+    </div>
+    <div>
+      <input id="defense-4" type="radio" name="defense" value="4" required>
+      <label for="defense-4">
+        Middle (4 Damage Threshold)
+      </label>
+    </div>
+    <div>
+      <input id="defense-2" type="radio" name="defense" value="2" required>
+      <label for="defense-2">
+        Worst (2 Damage Threshold)
+      </label>
+    </div>
+  </div>
+</fieldset>
+<fieldset>
+  <legend>
+    Healing
+  </legend>
+  <div class="cmp-cluster">
+    <div>
+      <input id="healing-d8" type="radio" name="healing" value="d8" required>
+      <label for="healing-d8">
+        Best (d8 Healing Die)
+      </label>
+    </div>
+    <div>
+      <input id="healing-d6" type="radio" name="healing" value="d6" required>
+      <label for="healing-d6">
+        Middle (d6 Healing Die)
+      </label>
+    </div>
+    <div>
+      <input id="healing-d4" type="radio" name="healing" value="d4" required>
+      <label for="healing-d4">
+        Worst (d4 Healing Die)
+      </label>
+    </div>
+  </div>
+</fieldset>
+
+<h2>
+  Vulnerabilities, Resistances, and Immunities
+</h2>
+<fieldset>
+  <legend>
+    Choose 3 vulnerabilities for your character.
+  </legend>
+  <div>
+    {% for effect in statusEffects %}
+      <div>
+        <input id="vulnerability-{{ effect.name | replace(' ', '-') | lower }}" type="checkbox" name="vulnerabilities" value="{{ effect.name }}">
+        <label for="vulnerability-{{ effect.name | replace(' ', '-') | lower }}">
+          {{ effect.name }} Status
+        </label>
+      </div>
+    {% endfor %}
+    {% for type in damageTypes %}
+      <div>
+        <input id="vulnerability-{{ type.name | replace(' ', '-') | lower }}" type="checkbox" name="vulnerabilities" value="{{ type.name }}">
+        <label for="vulnerability-{{ type.name | replace(' ', '-') | lower }}">
+          {{ type.name }} Damage
+        </label>
+      </div>
+    {% endfor %}
+  </div>
+</fieldset>
+<fieldset>
+  <legend>
+    Choose 2 resistances for your character.
+  </legend>
+  <div>
+    {% for effect in statusEffects %}
+      <div>
+        <input id="resistance-{{ effect.name | replace(' ', '-') | lower }}" type="checkbox" name="resistances" value="{{ effect.name }}">
+        <label for="resistance-{{ effect.name | replace(' ', '-') | lower }}">
+          {{ effect.name }} Status
+        </label>
+      </div>
+    {% endfor %}
+    {% for type in damageTypes %}
+      <div>
+        <input id="resistance-{{ type.name | replace(' ', '-') | lower }}" type="checkbox" name="resistances" value="{{ type.name }}">
+        <label for="resistance-{{ type.name | replace(' ', '-') | lower }}">
+          {{ type.name }} Damage
+        </label>
+      </div>
+    {% endfor %}
+  </div>
+</fieldset>
+<fieldset>
+  <legend>
+    Choose 1 immunity for your character.
+  </legend>
+  <div>
+    {% for effect in statusEffects %}
+      <div>
+        <input id="immunity-{{ effect.name | replace(' ', '-') | lower }}" type="checkbox" name="immunities" value="{{ effect.name }}">
+        <label for="immunity-{{ effect.name | replace(' ', '-') | lower }}">
+          {{ effect.name }} Status
+        </label>
+      </div>
+    {% endfor %}
+    {% for type in damageTypes %}
+      <div>
+        <input id="immunity-{{ type.name | replace(' ', '-') | lower }}" type="checkbox" name="immunities" value="{{ type.name }}">
+        <label for="immunity-{{ type.name | replace(' ', '-') | lower }}">
+          {{ type.name }} Damage
+        </label>
+      </div>
+    {% endfor %}
+  </div>
+</fieldset>
 <div>
   <button type="submit">
     Create Character
