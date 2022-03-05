@@ -6,7 +6,7 @@
     },
     {
       "path": "dist/assets/js/chunk-*.js",
-      "maxSize": "29 kB"
+      "maxSize": "31 kB"
     },
     {
       "path": "dist/assets/js/!(account|chunk-*)*.js",

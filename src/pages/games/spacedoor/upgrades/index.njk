@@ -19,13 +19,13 @@ description: See all the available upgrades that you can choose from.
   <h2>
     Stat Upgrades
   </h2>
-  {% for stat, skills in stats %}
+  {% for stat in stats %}
     <h3>
-      {{ stat }}
+      {{ stat.name }}
     </h3>
     <div class="cmp-upgrade-card__grid">
       {% for upgrade in statUpgrades %}
-        {% if stat == upgrade.stat %}
+        {% if stat.name == upgrade.stat %}
           {{ upgradeCard({ headingLevel: 'h4', upgrade: upgrade }) }}
         {% endif %}
       {% endfor %}
@@ -35,14 +35,14 @@ description: See all the available upgrades that you can choose from.
   <h2>
     Skill Upgrades
   </h2>
-  {% for stat, skills in stats %}
-    {% for skill in skills %}
+  {% for stat in stats %}
+    {% for skill in stat.skills %}
       <h3>
-        {{ skill }}
+        {{ skill.name }}
       </h3>
       <div class="cmp-upgrade-card__grid">
         {% for upgrade in skillUpgrades %}
-          {% if skill == upgrade.skill %}
+          {% if skill.name == upgrade.skill %}
             {{ upgradeCard({ headingLevel: 'h4', upgrade: upgrade }) }}
           {% endif %}
         {% endfor %}

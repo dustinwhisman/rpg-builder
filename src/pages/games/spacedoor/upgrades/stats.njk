@@ -16,13 +16,13 @@ description: See all the stat upgrades that you can choose from.
     Upgrade stat dice or add permanent bonuses to core stat rolls.
   </p>
 
-  {% for stat, skills in stats %}
+  {% for stat in stats %}
     <h2>
-      {{ stat }}
+      {{ stat.name }}
     </h2>
     <div class="cmp-upgrade-card__grid">
       {% for upgrade in statUpgrades %}
-        {% if stat == upgrade.stat %}
+        {% if stat.name == upgrade.stat %}
           {{ upgradeCard({ headingLevel: 'h3', upgrade: upgrade }) }}
         {% endif %}
       {% endfor %}

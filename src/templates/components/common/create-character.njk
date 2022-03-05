@@ -1,6 +1,6 @@
-{% for key, stat in stats %}
-  {% for skill in stats[key] %}
-    <input type="hidden" name="{{ skill }}" value="{{ key }}" data-skill>
+{% for stat in stats %}
+  {% for skill in stat.skills %}
+    <input type="hidden" name="{{ skill.name }}" value="{{ stat.name }}" data-skill>
   {% endfor %}
 {% endfor %}
 <div>
@@ -9,16 +9,16 @@
   </label>
   <input id="character-name" type="text" name="character-name" required>
 </div>
-{% for key, stat in stats %}
+{% for stat in stats %}
   <fieldset>
     <legend>
-      {{ key }}
+      {{ stat.name }}
     </legend>
     <div class="cmp-cluster">
       {% for dice in baseDice %}
         <div>
-          <input id="{{ key }}-{{ dice }}" type="radio" name="{{ key }}" value="{{ dice }}" data-stat required>
-          <label for="{{ key }}-{{ dice }}">
+          <input id="{{ stat.name }}-{{ dice }}" type="radio" name="{{ stat.name }}" value="{{ dice }}" data-stat required>
+          <label for="{{ stat.name }}-{{ dice }}">
             {{ dice }}
           </label>
         </div>

@@ -16,14 +16,14 @@ description: See all the skill upgrades that you can choose from.
     Upgrade skill dice or add permanent bonuses to skill checks.
   </p>
 
-  {% for stat, skills in stats %}
-    {% for skill in skills %}
+  {% for stat in stats %}
+    {% for skill in stat.skills %}
       <h2>
-        {{ skill }}
+        {{ skill.name }}
       </h2>
       <div class="cmp-upgrade-card__grid">
         {% for upgrade in skillUpgrades %}
-          {% if skill == upgrade.skill %}
+          {% if skill.name == upgrade.skill %}
             {{ upgradeCard({ headingLevel: 'h3', upgrade: upgrade }) }}
           {% endif %}
         {% endfor %}
