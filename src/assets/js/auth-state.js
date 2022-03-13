@@ -17,22 +17,21 @@ import { getCharacters } from './characters/get-characters.js';
     }
   };
 
-  const isAtGameRoot = () => {
-    if (window.location.pathname.endsWith('spacedoor/')) {
-      return true;
+  const gamePath = (game) => {
+    switch (game) {
+      case 'Spacedoor!':
+        return '/games/spacedoor';
+      case 'Heroes and Henchmen':
+        return '/games/heroes-and-henchmen';
+      default:
+        return '/';
     }
-
-    if (window.location.pathname.endsWith('heroes-and-henchmen/')) {
-      return true;
-    }
-
-    return false;
   };
 
-  const updateCharacterLinks = (characters) => {
+  const updateCharacterLinks = (characters, game) => {
     const characterList = characters.map(({ _id, name }) => `
         <li>
-          <a href="${isAtGameRoot() ? '.' : '..'}/character-sheet?id=${_id}">${name}</a>
+          <a href="${gamePath(game)}/character-sheet?id=${_id}">${name}</a>
         </li>
       `).join('');
 
@@ -49,7 +48,7 @@ import { getCharacters } from './characters/get-characters.js';
     window.CURRENT_USER = event.detail;
     updateAuthLinks(true);
     const characters = await getCharacters({ uid: window.CURRENT_USER.uid, CURRENT_GAME });
-    document.dispatchEvent(new CustomEvent('characters-welcome', { detail: { characters } }));
+    document.dispatchEvent(new CustomEvent('characters-welcome', { detail: { characters, game: CURRENT_GAME } }));
   });
 
   document.addEventListener('user-logged-out', () => {
@@ -58,8 +57,8 @@ import { getCharacters } from './characters/get-characters.js';
   });
 
   document.addEventListener('characters-welcome', ({ detail }) => {
-    const { characters } = detail;
-    updateCharacterLinks(characters);
+    const { characters, game } = detail;
+    updateCharacterLinks(characters, game);
   });
 
   observeAuthState();
