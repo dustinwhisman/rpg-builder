@@ -11,7 +11,6 @@ if (files.length) {
     outdir: 'dist/assets/js',
     bundle: true,
     format: 'esm',
-    splitting: true,
     sourcemap: !isProduction && 'inline',
     minify: isProduction,
     watch: !isProduction,
