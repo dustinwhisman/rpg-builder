@@ -51,7 +51,7 @@
     "dotenv": "^16.0.0",
     "esbuild": "^0.14.38",
     "firebase": "^9.6.11",
-    "firebase-admin": "^10.0.2",
+    "firebase-admin": "^10.1.0",
     "middy": "^0.36.0",
     "node-fetch": "^3.2.3",
     "pa11y": "^6.2.3"
